@@ -1,14 +1,14 @@
 import '../new_releases/Results.dart';
 
 
-class Recommended {
-  Recommended({
+class RecommendedData {
+  RecommendedData({
       this.page, 
       this.results, 
       this.totalPages, 
       this.totalResults,});
 
-  Recommended.fromJson(dynamic json) {
+  RecommendedData.fromJson(dynamic json) {
     page = json['page'];
     if (json['results'] != null) {
       results = [];

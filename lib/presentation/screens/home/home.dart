@@ -25,31 +25,33 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-          onTap: (index) {
-            setState(() {
-              selectedIndex = index;
-            });
-          },
-          currentIndex: selectedIndex,
-          type: BottomNavigationBarType.fixed,
-          items: const [
-            BottomNavigationBarItem(
-                icon: ImageIcon(AssetImage(AssetsManager.home),),
-                label: 'HOME'),
-            BottomNavigationBarItem(
-                icon: ImageIcon(AssetImage(AssetsManager.search)),
-                label: 'SEARCH'),
-            BottomNavigationBarItem(
-                icon: ImageIcon(AssetImage(AssetsManager.browse)),
-                label: 'BROWSE'),
-            BottomNavigationBarItem(
-              icon: ImageIcon(AssetImage(AssetsManager.watchList)),
-              label: 'WATCHLIST',
-            ),
-          ]),
-      body: tabs[selectedIndex],
+    return SafeArea(
+      child: Scaffold(
+        bottomNavigationBar: BottomNavigationBar(
+            onTap: (index) {
+              setState(() {
+                selectedIndex = index;
+              });
+            },
+            currentIndex: selectedIndex,
+            type: BottomNavigationBarType.fixed,
+            items: const [
+              BottomNavigationBarItem(
+                  icon: ImageIcon(AssetImage(AssetsManager.home),),
+                  label: 'HOME'),
+              BottomNavigationBarItem(
+                  icon: ImageIcon(AssetImage(AssetsManager.search)),
+                  label: 'SEARCH'),
+              BottomNavigationBarItem(
+                  icon: ImageIcon(AssetImage(AssetsManager.browse)),
+                  label: 'BROWSE'),
+              BottomNavigationBarItem(
+                icon: ImageIcon(AssetImage(AssetsManager.watchList)),
+                label: 'WATCHLIST',
+              ),
+            ]),
+        body: tabs[selectedIndex],
+      ),
     );
   }
 }

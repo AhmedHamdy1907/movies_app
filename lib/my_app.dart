@@ -12,12 +12,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       designSize: const Size(412, 892),
-      splitScreenMode: true,
+
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: Apptheme.theme,
         onGenerateRoute: RoutesManager.router,
-        initialRoute: RoutesManager.splash,
+        initialRoute: RoutesManager.moviesDetails,
       ),
     );
   }

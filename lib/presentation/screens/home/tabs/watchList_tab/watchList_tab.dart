@@ -15,9 +15,9 @@ class WatchlistTab extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          SizedBox(height: 78.h,),
+          SizedBox(height: 52.h,),
           Text('Watch List', style: AppStyle.watchList,),
-          Expanded(child: ListView.builder(itemBuilder:(context, index) =>  WatchWidget(), itemCount: 5,))
+          Expanded(child: ListView.builder(itemBuilder:(context, index) =>  const WatchWidget(), itemCount: 5,))
         ],
       ),
     );
