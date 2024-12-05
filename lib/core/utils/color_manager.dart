@@ -11,6 +11,7 @@ class ColorsManager{
   static const Color iconColor = Color(0xFF514F4F);
   static const Color hintDate = Color(0xFFB5B4B4);
   static const Color black3 = Color(0xFF282A28);
+  static const Color darkGray = Color(0xFF514F4F);
 
 
 

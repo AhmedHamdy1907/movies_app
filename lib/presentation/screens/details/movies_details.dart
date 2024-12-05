@@ -15,7 +15,6 @@ class MoviesDetails extends StatelessWidget {
     return  SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          leading: Icon(Icons.arrow_back, color: ColorsManager.white, size: 30.sp,),
           backgroundColor: ColorsManager.appBarColor,
           title: Text('Dora and the lost city of gold' ,style : AppStyle.moviesDetailsTitle),
         ),

@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: Apptheme.theme,
         onGenerateRoute: RoutesManager.router,
-        initialRoute: RoutesManager.moviesDetails,
+        initialRoute: RoutesManager.splash,
       ),
     );
   }
