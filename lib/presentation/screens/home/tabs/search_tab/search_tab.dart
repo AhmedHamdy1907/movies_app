@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/config/theme/app_theme.dart';
 import 'package:movies_app/core/utils/app_style.dart';
 import 'package:movies_app/core/utils/color_manager.dart';
+import 'package:movies_app/presentation/screens/home/tabs/search_tab/widget/search_widget.dart';
 import 'package:movies_app/presentation/screens/home/tabs/watchList_tab/widget/watch_widget.dart';
 
 class SearchTab extends StatelessWidget {
@@ -10,11 +11,11 @@ class SearchTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Padding(
-          padding: REdgeInsets.symmetric(horizontal: 20, vertical: 15),
-          child: TextFormField(
+    return Padding(
+      padding: REdgeInsets.symmetric(horizontal: 20, vertical: 15),
+      child: Column(
+        children: [
+          TextFormField(
             style: AppStyle.movieTitle.copyWith(fontSize: 15.sp),
             decoration: InputDecoration(
               prefixIcon: const Icon(Icons.search,color: ColorsManager.white, ),
@@ -29,10 +30,10 @@ class SearchTab extends StatelessWidget {
                 borderRadius: BorderRadius.circular(40),
               )
           )),
-        ),
-        Expanded(child: ListView.builder(itemBuilder:(context, index) =>  const WatchWidget(), itemCount: 5,))
+          Expanded(child: ListView.builder(itemBuilder:(context, index) =>  const SearchWidget(), itemCount: 5,))
 
-      ],
+        ],
+      ),
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:movies_app/core/utils/assets_manager.dart';
 import 'package:movies_app/core/utils/color_manager.dart';
 import 'package:movies_app/core/utils/routes_manager.dart';
 
@@ -41,7 +42,7 @@ class PopularWidget extends StatelessWidget {
                           },
                               child: Image.asset('assets/images/Image (1).png',)),
                            InkWell(onTap: (){},
-                              child: Image.asset('assets/images/bookmark (1).png',fit: BoxFit.cover,height: 36.h,width: 27.w,)),
+                              child: Image.asset(AssetsManager.bookMark,fit: BoxFit.cover,height: 36.h,width: 27.w,)),
                         ],
                       ),
                     ),

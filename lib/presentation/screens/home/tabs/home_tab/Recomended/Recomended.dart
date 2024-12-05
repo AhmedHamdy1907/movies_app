@@ -27,7 +27,7 @@ class Recommended extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   itemCount: 10,
                   itemBuilder: (context, index) =>    Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 9.w),
+                    padding: REdgeInsets.symmetric(horizontal: 9),
                     child: const RecommendedItem()
                   )),
             ),

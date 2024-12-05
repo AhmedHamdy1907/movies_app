@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:movies_app/core/utils/app_style.dart';
 import 'package:movies_app/core/utils/color_manager.dart';
 import 'package:movies_app/presentation/screens/home/tabs/home_tab/NewReleases/releases_item.dart';
 
@@ -15,17 +16,17 @@ class ReleasesWidget extends StatelessWidget
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
            Padding(
-             padding: const EdgeInsets.all(10.0),
-             child: Text("New Releases ",style: TextStyle(fontSize: 15.sp,color:ColorsManager.white)),
+             padding: REdgeInsets.all(10),
+             child: Text("New Releases ",style: AppStyle.newReleaseTitle),
            ),
-          Container(
-            height:127.74.h ,
+          SizedBox(
+            height: 127.74.h ,
             child: ListView.builder(
-              padding:  EdgeInsets.symmetric(horizontal: 8.w),
+              padding:  REdgeInsets.symmetric(horizontal: 8),
               scrollDirection: Axis.horizontal,
                 itemCount: 10,
                 itemBuilder: (context, index) => Padding(
-                  padding:  EdgeInsets.symmetric(horizontal: 9.w),
+                  padding:  REdgeInsets.symmetric(horizontal: 9),
                   child: ReleasesItem(),
                 )),
           ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:movies_app/core/utils/app_style.dart';
 import 'package:movies_app/core/utils/assets_manager.dart';
 import 'package:movies_app/core/utils/color_manager.dart';
 import 'package:movies_app/core/utils/routes_manager.dart';
@@ -13,11 +14,11 @@ class RecommendedItem extends StatelessWidget {
       width: 97.w,
       height: 184.h,
       decoration: BoxDecoration(
-          border: Border.all(color: Color(0XFF343534), width: 1.w),
-          color: Color(0XFF343534),
-          boxShadow: const [
+          border: Border.all(color: ColorsManager.darkGrey2, width: 1.w),
+          color: ColorsManager.darkGrey2,
+          boxShadow: const[
             BoxShadow(
-                color: Color(0XFF343534),
+                color: ColorsManager.darkGrey2,
                 blurRadius: 3,
                 spreadRadius: 1,
                 offset: Offset(0, 0))
@@ -44,7 +45,7 @@ class RecommendedItem extends StatelessWidget {
               InkWell(
                   onTap: () {},
                   child: Image.asset(
-                    'assets/images/bookmark (1).png',
+                    AssetsManager.bookMark,
                     fit: BoxFit.cover,
                     height: 36.h,
                     width: 27.w,
@@ -55,7 +56,7 @@ class RecommendedItem extends StatelessWidget {
             height: 4.h,
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 5),
+            padding: REdgeInsets.symmetric(horizontal: 5),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -71,9 +72,7 @@ class RecommendedItem extends StatelessWidget {
                     ),
                     Text(
                       "7.7",
-                      style: TextStyle(
-                          color: ColorsManager.white, fontSize: 12.sp),
-                    )
+                      style: AppStyle.ratingText,)
                   ],
                 ),
                 SizedBox(
@@ -81,7 +80,7 @@ class RecommendedItem extends StatelessWidget {
                 ),
                 Text(
                   "Deadpool 2",
-                  style: TextStyle(color: ColorsManager.white, fontSize: 14.sp),
+                  style: AppStyle.ratingText.copyWith(fontSize: 14.sp),
                   textAlign: TextAlign.start,
                 ),
                 SizedBox(
@@ -89,8 +88,7 @@ class RecommendedItem extends StatelessWidget {
                 ),
                 Text(
                   "2018  R  1h 59m",
-                  style:
-                      TextStyle(color: ColorsManager.hintDate, fontSize: 10.sp),
+                  style:AppStyle.movieDate,
                   textAlign: TextAlign.start,
                 )
               ],

@@ -7,6 +7,8 @@ class AssetsManager{
   static const String browse = '${base}Browse.png';
   static const String watchList = '${base}watchList.png';
   static const String star = '${base}star.png';
+  static const String bookMark = '${base}bookmark (1).png';
+  static const String addedBookMark = '${base}added-bookmark.png';
 
 
 }
