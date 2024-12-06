@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/config/theme/app_theme.dart';
 import 'package:movies_app/core/utils/app_style.dart';
 import 'package:movies_app/core/utils/color_manager.dart';
+import 'package:movies_app/core/utils/routes_manager.dart';
 import 'package:movies_app/presentation/screens/details/widget/movies_details_widget.dart';
 
 import '../home/tabs/home_tab/Recomended/Recomended.dart';
@@ -15,6 +16,9 @@ class MoviesDetails extends StatelessWidget {
     return  SafeArea(
       child: Scaffold(
         appBar: AppBar(
+          leading: IconButton(onPressed: (){
+            Navigator.pushReplacementNamed(context, RoutesManager.home);
+          }, icon: const Icon(Icons.arrow_back)),
           backgroundColor: ColorsManager.appBarColor,
           title: Text('Dora and the lost city of gold' ,style : AppStyle.moviesDetailsTitle),
         ),
@@ -55,7 +59,7 @@ class MoviesDetails extends StatelessWidget {
                     ],
                   ),
                   SizedBox(height: 15.h,),
-                  Recommended(title: 'More Like This',),
+                  Recommended(title: 'More Like This'),
                 ],
               ),
             ),

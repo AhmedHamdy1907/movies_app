@@ -5,7 +5,8 @@ import 'package:movies_app/core/utils/color_manager.dart';
 import 'RecomendedItem.dart';
 
 class Recommended extends StatelessWidget {
-  Recommended({super.key, required this.title});
+  // bool isNavigate;
+  Recommended({super.key, required this.title,});
   String title;
   @override
   Widget build(BuildContext context) {
@@ -28,7 +29,7 @@ class Recommended extends StatelessWidget {
                   itemCount: 10,
                   itemBuilder: (context, index) =>    Padding(
                     padding: REdgeInsets.symmetric(horizontal: 9),
-                    child: const RecommendedItem()
+                    child:  RecommendedItem()
                   )),
             ),
             SizedBox(height: 15.h,)

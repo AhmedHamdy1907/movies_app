@@ -4,9 +4,11 @@ import 'package:movies_app/core/utils/app_style.dart';
 import 'package:movies_app/core/utils/assets_manager.dart';
 import 'package:movies_app/core/utils/color_manager.dart';
 import 'package:movies_app/core/utils/routes_manager.dart';
+import 'package:movies_app/presentation/screens/details/movies_details.dart';
 
 class RecommendedItem extends StatelessWidget {
-  const RecommendedItem({super.key});
+  // bool isNavigate;
+   RecommendedItem({super.key,});
 
   @override
   Widget build(BuildContext context) {
@@ -33,10 +35,9 @@ class RecommendedItem extends StatelessWidget {
                   height: 128.7.h,
                   width: double.infinity,
                   child: InkWell(
-                      onTap: () {
-                        Navigator.of(context).pushNamed(
-                          RoutesManager.moviesDetails,
-                        );
+                      onTap: ()
+                      {
+                        Navigator.pushReplacementNamed(context,  RoutesManager.moviesDetails);
                       },
                       child: Image.asset(
                         'assets/images/Image (1).png',
