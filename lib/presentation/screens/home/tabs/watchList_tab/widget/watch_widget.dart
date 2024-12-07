@@ -23,7 +23,7 @@ class WatchWidget extends StatelessWidget {
                 children: [
                   Image.asset('assets/images/Image.png', width: 160.w,),
                   Image.asset(
-                    AssetsManager.addedBookMark,
+                    AssetsManager.bookMark,
                     fit: BoxFit.cover,
                     height: 36.h,
                     width: 27.w,
