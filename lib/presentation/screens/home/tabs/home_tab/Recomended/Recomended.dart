@@ -18,21 +18,21 @@ class Recommended extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-             Padding(
-              padding:  REdgeInsets.all(10),
-              child:   Text(title ,style: AppStyle.newReleaseTitle),
+            Padding(
+              padding: const EdgeInsets.only(left: 18,top: 10 ,bottom: 12),
+              child: Text(title,style: AppStyle.newReleaseTitle),
             ),
             Expanded(
               child: ListView.builder(
-                  padding:  REdgeInsets.symmetric(horizontal: 8.w),
+                  padding: const EdgeInsets.only(left: 18,), // إلغاء المسافات من فوق وتحت
                   scrollDirection: Axis.horizontal,
                   itemCount: 10,
                   itemBuilder: (context, index) =>    Padding(
-                    padding: REdgeInsets.symmetric(horizontal: 9),
-                    child:  RecommendedItem()
+                    padding: const EdgeInsets.only(right:13),
+                    child: RecommendedItem(),
                   )),
             ),
-            SizedBox(height: 15.h,)
+            SizedBox(height: 10.h,)
           ],
         ),
       ),

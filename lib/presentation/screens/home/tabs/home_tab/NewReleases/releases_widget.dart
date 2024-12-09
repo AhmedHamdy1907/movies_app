@@ -16,19 +16,17 @@ class ReleasesWidget extends StatelessWidget
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
            Padding(
-             padding: REdgeInsets.all(10),
+             padding: const EdgeInsets.only(left: 18,top: 15,bottom: 12),
              child: Text("New Releases ",style: AppStyle.newReleaseTitle),
            ),
           SizedBox(
             height: 127.74.h ,
             child: ListView.builder(
-              padding:  REdgeInsets.symmetric(horizontal: 8),
+                padding: const EdgeInsets.only(left: 18), // إلغاء المسافات من فوق وتحت
+                // padding:  REdgeInsets.symmetric(horizontal: 1),
               scrollDirection: Axis.horizontal,
                 itemCount: 10,
-                itemBuilder: (context, index) => Padding(
-                  padding:  REdgeInsets.symmetric(horizontal: 9),
-                  child: ReleasesItem(),
-                )),
+                itemBuilder: (context, index) => const ReleasesItem()),
           ),
           // SizedBox(height: 10.h,)
         ],

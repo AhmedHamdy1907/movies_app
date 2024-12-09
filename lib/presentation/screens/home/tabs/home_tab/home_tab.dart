@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/core/utils/app_style.dart';
 import 'package:movies_app/core/utils/color_manager.dart';
-import 'package:movies_app/presentation/screens/home/tabs/home_tab/popular_widget/popular_widget.dart';
+import 'package:movies_app/presentation/screens/home/tabs/home_tab/popular_widget/popular_calling_data.dart';
 
 import 'NewReleases/releases_widget.dart';
 import 'Recomended/Recomended.dart';
@@ -14,10 +14,10 @@ class HomeTab extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        PopularWidget(),
-        SizedBox(height: 20.h,),
-        ReleasesWidget(),
-        SizedBox(height: 20.h,),
+         const popularCallingData(),
+        SizedBox(height: 15.h,),
+        const ReleasesWidget(),
+        SizedBox(height: 15.h,),
         Recommended(title: 'Recommended',),
       ],
     );

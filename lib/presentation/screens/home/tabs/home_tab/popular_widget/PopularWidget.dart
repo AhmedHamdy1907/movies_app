@@ -1,24 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movies_app/core/utils/assets_manager.dart';
-import 'package:movies_app/core/utils/color_manager.dart';
-import 'package:movies_app/core/utils/routes_manager.dart';
-
-
+import 'package:movies_app/data/model/popular_movies/Results.dart';
+import '../../../../../../core/utils/assets_manager.dart';
+import '../../../../../../core/utils/color_manager.dart';
+import '../../../../../../core/utils/routes_manager.dart';
 class PopularWidget extends StatelessWidget {
-  const PopularWidget({super.key});
+ List <Results> results;
+   PopularWidget({super.key,required this.results});
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    const String pathImageUrl="https://image.tmdb.org/t/p/w500";
+    return Container(
       height: 289.h,
       child: Stack(
         children: [
-          SizedBox(
-            height: 217.h,
-              child: Image.asset('assets/images/Image.png',fit: BoxFit.cover,)),
+          Container(
+              height: 217.h,
+              width: double.infinity,
+              child: Image.network(
+                results[2].backdropPath != null
+                    ? '$pathImageUrl${results[3].backdropPath!}'
+                    : 'https://via.placeholder.com/500',fit: BoxFit.fill, // صورة افتراضية لو مفيش مسار
+              )
+          ),
           Positioned(
-            top: 80.h,
+            top: 90.h,
             child: Padding(
               padding:  REdgeInsets.only(left: 20.w),
               child: Row(
@@ -40,24 +47,34 @@ class PopularWidget extends StatelessWidget {
                             );
 
                           },
-                              child: Image.asset('assets/images/Image (1).png',)),
-                           InkWell(onTap: (){},
-                              child: Image.asset(AssetsManager.bookMark,fit: BoxFit.cover,height: 36.h,width: 27.w,)),
+                              child: Image.network(
+                                results[2].backdropPath != null
+                                    ? '$pathImageUrl${results[3].posterPath!}'
+                                    : 'https://via.placeholder.com/500',fit: BoxFit.fill, // صورة افتراضية لو مفيش مسار
+                              )
+
+                          ),
+                          InkWell(onTap: (){},
+                              child: SizedBox(
+                                height: 140.h,
+                                  width: 100.w,
+                                  child: Image.asset(AssetsManager.bookMark,fit: BoxFit.cover,))),
                         ],
                       ),
                     ),
                   ),
-                   SizedBox(
+                  SizedBox(
                     width: 20.w,
                   ),
-                   Column(
+                  Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(
-                        height: 140.h,
+                        height: 115.h,
                       ),
                       Text(
-                        "Dora and the lost city of gold",
+                        results[3].title??""
+                        ,
                         style: TextStyle(
                             fontSize: 14, color: ColorsManager.white),
                       ),
@@ -65,14 +82,12 @@ class PopularWidget extends StatelessWidget {
                         height: 10.h,
                       ),
                       Text(
-                        "2019  PG-13  2h 7m",
+                        results[3].releaseDate??""
+                        ,
                         style: TextStyle(
                             fontSize: 10.sp, color: ColorsManager.hintDate),
                       ),
                     ],
-                  ),
-                   SizedBox(
-                    height: 20.h,
                   ),
                 ],
               ),
@@ -81,6 +96,5 @@ class PopularWidget extends StatelessWidget {
         ],
       ),
     );
-
   }
 }

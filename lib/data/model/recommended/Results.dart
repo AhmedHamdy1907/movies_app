@@ -14,7 +14,6 @@ class Results {
   num? voteAverage;
   num? voteCount;
 
-
   Results({
       this.adult, 
       this.backdropPath, 
@@ -47,6 +46,7 @@ class Results {
     voteAverage = json['vote_average'];
     voteCount = json['vote_count'];
   }
+
 
 
 }

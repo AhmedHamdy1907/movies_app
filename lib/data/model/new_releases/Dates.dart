@@ -1,4 +1,7 @@
 class Dates {
+  String? maximum;
+  String? minimum;
+
   Dates({
       this.maximum, 
       this.minimum,});
@@ -7,14 +10,6 @@ class Dates {
     maximum = json['maximum'];
     minimum = json['minimum'];
   }
-  String? maximum;
-  String? minimum;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
-    map['maximum'] = maximum;
-    map['minimum'] = minimum;
-    return map;
-  }
 
 }

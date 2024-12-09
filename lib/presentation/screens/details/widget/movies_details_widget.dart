@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:movies_app/config/theme/app_theme.dart';
 import 'package:movies_app/core/utils/app_style.dart';
 import 'package:movies_app/core/utils/color_manager.dart';
-import 'package:movies_app/data/model/recommended/RecommendedData.dart';
-import 'package:movies_app/presentation/screens/home/tabs/home_tab/Recomended/Recomended.dart';
-import 'package:movies_app/presentation/screens/home/tabs/home_tab/Recomended/RecomendedItem.dart';
 
 class MoviesDetailsWidget extends StatelessWidget {
   const MoviesDetailsWidget({super.key});

@@ -14,7 +14,7 @@ class RecommendedItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 97.w,
-      height: 184.h,
+      // height: 200.h,
       decoration: BoxDecoration(
           border: Border.all(color: ColorsManager.darkGrey2, width: 1.w),
           color: ColorsManager.darkGrey2,
@@ -33,7 +33,7 @@ class RecommendedItem extends StatelessWidget {
             children: [
               SizedBox(
                   height: 128.7.h,
-                  width: double.infinity,
+                  width: 96.87.w,
                   child: InkWell(
                       onTap: ()
                       {
@@ -41,13 +41,13 @@ class RecommendedItem extends StatelessWidget {
                       },
                       child: Image.asset(
                         'assets/images/Image (1).png',
-                        fit: BoxFit.cover,
+                        fit: BoxFit.fill,
                       ))),
               InkWell(
                   onTap: () {},
                   child: Image.asset(
                     AssetsManager.bookMark,
-                    fit: BoxFit.cover,
+                    fit: BoxFit.fill,
                     height: 36.h,
                     width: 27.w,
                   )),
@@ -57,7 +57,7 @@ class RecommendedItem extends StatelessWidget {
             height: 4.h,
           ),
           Padding(
-            padding: REdgeInsets.symmetric(horizontal: 5),
+            padding: REdgeInsets.symmetric(horizontal: 5.w),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
