@@ -6,7 +6,7 @@ class PopularResponse {
   num? page;
   num? totalPages;
   num? totalResults;
-  List<Results>? results;
+  List<ResultsPopular>? results;
 
   PopularResponse({
     this.success,
@@ -27,7 +27,7 @@ class PopularResponse {
     if (json['results'] != null) {
       results = [];
       json['results'].forEach((v) {
-        results?.add(Results.fromJson(v));
+        results?.add(ResultsPopular.fromJson(v));
       });
     }
 

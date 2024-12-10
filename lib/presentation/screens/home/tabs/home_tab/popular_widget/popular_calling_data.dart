@@ -15,7 +15,7 @@ class popularCallingData extends StatelessWidget {
   Widget build(BuildContext context) {
     return FutureBuilder(
         future: ApiManager.getPopular(),
-        builder: (context, snapshot)
+        builder: (context, snapshot)// ال snapshot هي ال data اللي جت من الل api
         {
           if (snapshot.connectionState==ConnectionState.waiting)
             {
@@ -25,9 +25,9 @@ class popularCallingData extends StatelessWidget {
             }
           if(snapshot.data?.success==false||snapshot.hasError)
             {
-              return Text(snapshot.data?.statusMessage??snapshot.error.toString(),style: TextStyle(color: Colors.cyan),);
+              return Text(snapshot.data?.statusMessage??snapshot.error.toString(),style: const TextStyle(color: Colors.red),);
             }
-          List<Results>results=snapshot.data!.results!;
+          List<ResultsPopular>results=snapshot.data!.results!;
           return PopularWidget(results:results);
         },);
   }
