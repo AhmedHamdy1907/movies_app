@@ -7,7 +7,8 @@ import 'package:movies_app/core/utils/routes_manager.dart';
 import 'package:movies_app/presentation/screens/details/movies_details.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../../../provider/releases_provider/releases_provider.dart';
+import '../../../../../../provider/home_tap/releases_provider/releases_provider.dart';
+
 
 class ReleasesItem extends StatelessWidget {
   int index;

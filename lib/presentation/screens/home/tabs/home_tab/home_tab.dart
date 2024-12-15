@@ -15,7 +15,7 @@ class HomeTab extends StatelessWidget {
         SizedBox(height: 15.h,),
            const ReleasesWidget(),
         SizedBox(height: 15.h,),
-        Recommended(title: 'Recommended',),
+        Recommended(),
       ],
     );
   }

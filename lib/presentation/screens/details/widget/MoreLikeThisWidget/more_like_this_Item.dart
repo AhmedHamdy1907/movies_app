@@ -5,26 +5,26 @@ import 'package:movies_app/core/utils/app_style.dart';
 import 'package:movies_app/core/utils/assets_manager.dart';
 import 'package:movies_app/core/utils/color_manager.dart';
 import 'package:movies_app/core/utils/routes_manager.dart';
-import 'package:movies_app/presentation/screens/details/movies_details.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../../../provider/home_tap/recommended_provider/recommended_provider.dart';
-class RecommendedItem extends StatelessWidget {
-  int index = 0;
-  RecommendedItem({super.key, required this.index});
+import '../../../../../provider/details_tap/more_like_this/more_like_this.dart';
+
+class MoreLikeThisItem extends StatelessWidget {
+  int index;
+  MoreLikeThisItem({super.key,required this.index});
   @override
   Widget build(BuildContext context) {
     const String pathImageUrl = "https://image.tmdb.org/t/p/w500";
     return ChangeNotifierProvider(
-      create: (context) => RecommendedProvider(),
-      child: Consumer<RecommendedProvider>(
+      create: (context) => MoreLikeThisProvider(),
+      child: Consumer<MoreLikeThisProvider>(
         builder: (context, value, child) {
-          if (value.recommendedResponse.results == null ||
-              value.recommendedResponse.results!.isEmpty) {
-            value.getRecommended(); // إذا كانت البيانات غير محملة، نطلبها هنا
+          if (value.moreLikeThisResponse.results == null ||
+              value.moreLikeThisResponse.results!.isEmpty) {
+            value.getMoreLikeThis(); // إذا كانت البيانات غير محملة، نطلبها هنا
             return const Center(
                 child:
-                    CircularProgressIndicator()); // نعرض شاشة تحميل حتى يتم تحميل البيانات
+                CircularProgressIndicator()); // نعرض شاشة تحميل حتى يتم تحميل البيانات
           }
           return Container(
             width: 97.w,
@@ -54,7 +54,7 @@ class RecommendedItem extends StatelessWidget {
                                   context, RoutesManager.moviesDetails);
                             },
                             child: CachedNetworkImage(
-                              imageUrl: '$pathImageUrl${value.recommendedResponse.results?[index].posterPath}',
+                              imageUrl: '$pathImageUrl${value.moreLikeThisResponse.results?[index].posterPath}',
                               fit: BoxFit.fill,
                               placeholder: (context, url) => const Center(
                                 child: CircularProgressIndicator(), // مؤشر انتظار أثناء التحميل
@@ -93,7 +93,7 @@ class RecommendedItem extends StatelessWidget {
                             width: 5.w,
                           ),
                           Text(
-                            value.recommendedResponse.results![index].voteAverage!.toStringAsFixed(1),
+                            value.moreLikeThisResponse.results![index].voteAverage!.toStringAsFixed(1),
                             style: AppStyle.ratingText,
                           )
                         ],
@@ -103,7 +103,7 @@ class RecommendedItem extends StatelessWidget {
                       ),
                       Text(
                         maxLines: 1, // حدد عدد السطور المسموح بها
-                        value.recommendedResponse.results![index].title ?? "",
+                        value.moreLikeThisResponse.results![index].title ?? "",
                         style: const TextStyle(
                             overflow: TextOverflow.ellipsis,
                             fontSize: 14,
@@ -115,7 +115,7 @@ class RecommendedItem extends StatelessWidget {
                       ),
                       Text(
                         maxLines: 1, // حدد عدد السطور المسموح بها
-                        value.recommendedResponse.results![index].releaseDate ?? "",
+                        value.moreLikeThisResponse.results![index].releaseDate ?? "",
                         style: const TextStyle(
                             overflow: TextOverflow.ellipsis,
                             fontSize: 10,

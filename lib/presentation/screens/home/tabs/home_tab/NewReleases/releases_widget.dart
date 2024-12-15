@@ -4,7 +4,8 @@ import 'package:movies_app/core/utils/app_style.dart';
 import 'package:movies_app/core/utils/color_manager.dart';
 import 'package:movies_app/presentation/screens/home/tabs/home_tab/NewReleases/releases_item.dart';
 import 'package:provider/provider.dart';
-import '../../../../../../provider/releases_provider/releases_provider.dart';
+
+import '../../../../../../provider/home_tap/releases_provider/releases_provider.dart';
 class ReleasesWidget extends StatelessWidget
 {
    const ReleasesWidget({super.key});

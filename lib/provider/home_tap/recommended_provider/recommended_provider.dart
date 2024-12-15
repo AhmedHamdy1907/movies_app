@@ -1,8 +1,10 @@
 import 'dart:async';
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:movies_app/data/model/recommended/Recommended_response.dart';
-import '../../data/api/api_home/call_api_recommended/api_recommended.dart';
+
+import '../../../data/api/api_home/call_api_recommended/api_recommended.dart';
+import '../../../data/model/home_Tap_Model/recommended/Recommended_response.dart';
+
 class RecommendedProvider extends ChangeNotifier
 {
  RecommendedResponse recommendedResponse =RecommendedResponse();

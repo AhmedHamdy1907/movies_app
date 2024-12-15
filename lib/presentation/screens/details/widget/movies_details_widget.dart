@@ -33,7 +33,6 @@ class MoviesDetailsWidget extends StatelessWidget {
       ),
     );
   }
-
   Widget buildBoxDescription() {
     return Container(
       padding: REdgeInsets.symmetric(horizontal: 18, vertical: 6),
