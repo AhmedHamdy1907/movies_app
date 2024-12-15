@@ -1,23 +1,23 @@
-
 import 'dart:async';
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:movies_app/data/model/popular_movies/Popular_response.dart';
-import '../../data/api/api_home/call_api_popular/api_manager.dart';
-class providerPopular extends ChangeNotifier
+import '../../data/api/api_home/call_api_releases/api_releases.dart';
+import '../../data/model/new_releases/Releases_response.dart';
+class providerReleases extends ChangeNotifier
 {
   bool _isDisposed = false;
-  int index=0;
+  int index=2;
   void changeindex(newindex)
   {
     if(index==newindex)return;
     index=newindex;
     notifyListeners();
   }
-  PopularResponse popularResponse=PopularResponse();
-  Future<PopularResponse> data() async {
+  ReleasesResponse releasesResponse=ReleasesResponse();
+  Future<ReleasesResponse> data() async {
     try {
-      final cheak = await ApiManager.getPopular();
+      final cheak =await ApiManagerReleases.getReleases();
+      ;
       if (cheak.statusCode == "200" || cheak.success != false) {
         return cheak;
       } else {
@@ -36,19 +36,17 @@ class providerPopular extends ChangeNotifier
       }
     }
   }
- void getDataPopular() async
- {
-   if (_isDisposed) return;
-   popularResponse = await data();
-   if (!_isDisposed)
-   {
-     notifyListeners();
-   }
- }
- @override
-  void dispose() {
-   _isDisposed = true;
-   super.dispose();
+  void getDataReleases() async
+  {
+
+    releasesResponse = await data();
+      notifyListeners();
+
+
+    // @override
+    // void dispose() {
+    //   _isDisposed = true;
+    //   super.dispose();
+    // }
   }
 }
-

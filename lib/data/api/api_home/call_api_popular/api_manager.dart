@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import '../../../model/popular_movies/Popular_response.dart';
-// https://api.themoviedb.org/3/movie/popular
 class ApiManager {
 
   // Uri.parse("https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1")

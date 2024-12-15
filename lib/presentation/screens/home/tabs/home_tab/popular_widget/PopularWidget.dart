@@ -1,7 +1,6 @@
 import 'package:carousel_slider_plus/carousel_slider_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movies_app/data/model/popular_movies/Results.dart';
 import 'package:provider/provider.dart';
 import '../../../../../../core/utils/assets_manager.dart';
 import '../../../../../../core/utils/color_manager.dart';
@@ -15,11 +14,12 @@ class PopularWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     const String pathImageUrl = "https://image.tmdb.org/t/p/w500";
     return ChangeNotifierProvider(
-      create: (context) => providerModel()..getDataPopular(),
-      child: Consumer<providerModel>(
+      create: (context) => providerPopular(),
+      child: Consumer<providerPopular>(
         builder: (context, value, child) {
-          if (value.popularResponse.results == null) {
-            return const Center(child: CircularProgressIndicator());
+          if (value.popularResponse.results == null || value.popularResponse.results!.isEmpty) {
+            value.getDataPopular(); // إذا كانت البيانات غير محملة، نطلبها هنا
+            return Center(child: CircularProgressIndicator()); // نعرض شاشة تحميل حتى يتم تحميل البيانات
           }
           return SizedBox(
             height: 289.h,
