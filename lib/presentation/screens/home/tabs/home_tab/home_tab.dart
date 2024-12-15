@@ -11,9 +11,9 @@ class HomeTab extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-          const PopularWidget(),
+           const PopularWidget(),
         SizedBox(height: 15.h,),
-          ReleasesWidget(),
+           const ReleasesWidget(),
         SizedBox(height: 15.h,),
         Recommended(title: 'Recommended',),
       ],

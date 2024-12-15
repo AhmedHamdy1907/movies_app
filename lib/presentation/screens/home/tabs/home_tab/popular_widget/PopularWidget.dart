@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider_plus/carousel_slider_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -17,9 +18,12 @@ class PopularWidget extends StatelessWidget {
       create: (context) => providerPopular(),
       child: Consumer<providerPopular>(
         builder: (context, value, child) {
-          if (value.popularResponse.results == null || value.popularResponse.results!.isEmpty) {
+          if (value.popularResponse.results == null ||
+              value.popularResponse.results!.isEmpty) {
             value.getDataPopular(); // إذا كانت البيانات غير محملة، نطلبها هنا
-            return Center(child: CircularProgressIndicator()); // نعرض شاشة تحميل حتى يتم تحميل البيانات
+            return const Center(
+                child:
+                    CircularProgressIndicator()); // نعرض شاشة تحميل حتى يتم تحميل البيانات
           }
           return SizedBox(
             height: 289.h,
@@ -28,24 +32,24 @@ class PopularWidget extends StatelessWidget {
               children: [
                 CarouselSlider(
                   options: CarouselOptions(
-                    pauseAutoPlayOnTouch: true,
-                    autoPlay: true,
-                    height: 217.h,
-                    viewportFraction: 1,
-                    onPageChanged: (index, reason)
-                    {
-                      value.changeindex(index);
-                    }
-                  ),
+                      pauseAutoPlayOnTouch: true,
+                      autoPlay: true,
+                      height: 217.h,
+                      viewportFraction: 1,
+                      onPageChanged: (index, reason) {
+                        value.changeindex(index);
+                      }),
                   items: value.popularResponse.results!.map((e) {
                     return SizedBox(
-                      height: 217.h,
-                      width: double.infinity,
-                      child: value.popularResponse.results!=null?Image.network(
-                         '$pathImageUrl${e.backdropPath!}',
-                        fit: BoxFit.fill,
-                      ): const Center(child: CircularProgressIndicator())
-                    );}).toList(),
+                        height: 217.h,
+                        width: double.infinity,
+                        child: value.popularResponse.results != null
+                            ? Image.network(
+                                '$pathImageUrl${e.backdropPath!}',
+                                fit: BoxFit.fill,
+                              )
+                            : const Center(child: CircularProgressIndicator()));
+                  }).toList(),
                 ),
                 Positioned(
                   top: 90.h,
@@ -66,26 +70,39 @@ class PopularWidget extends StatelessWidget {
                               child: Stack(
                                 children: [
                                   InkWell(
-                                    onTap: () {
-                                      Navigator.of(context).pushNamedAndRemoveUntil(
-                                        RoutesManager.moviesDetails,
-                                            (route) =>
-                                        route.settings.name != RoutesManager.moviesDetails,
-                                      );
-                                    },
-                                    child: value.popularResponse.results!=null && value.popularResponse.results!.isNotEmpty?
-                                    Image.network(
-                                           '$pathImageUrl${value.popularResponse.results![value.index].posterPath!}',
-                                      fit: BoxFit.fill,
-                                    ):const Center(child: CircularProgressIndicator())
-                                  ),
+                                      onTap: () {
+                                        Navigator.of(context)
+                                            .pushNamedAndRemoveUntil(
+                                          RoutesManager.moviesDetails,
+                                          (route) =>
+                                              route.settings.name !=
+                                              RoutesManager.moviesDetails,
+                                        );
+                                      },
+                                      child: CachedNetworkImage(
+                                        imageUrl:
+                                            '$pathImageUrl${value.popularResponse.results?[value.index].posterPath}',
+                                        fit: BoxFit.fill,
+                                        placeholder: (context, url) =>
+                                            const Center(
+                                          child:
+                                              CircularProgressIndicator(), // مؤشر انتظار أثناء التحميل
+                                        ),
+                                        errorWidget: (context, url, error) =>
+                                            const Icon(
+                                          Icons.error,
+                                          // ويدجت تظهر لو حصل خطأ في التحميل
+                                          color: Colors.red,
+                                        ),
+                                      )),
                                   InkWell(
                                     onTap: () {},
                                     child: SizedBox(
                                       height: 140.h,
                                       width: 100.w,
                                       child: Image.asset(
-                                        AssetsManager.bookMark,
+                                        value.popularResponse.results!=null?
+                                        AssetsManager.bookMark:"",
                                         fit: BoxFit.cover,
                                       ),
                                     ),
@@ -102,20 +119,25 @@ class PopularWidget extends StatelessWidget {
                                 SizedBox(height: 115.h),
                                 Text(
                                   maxLines: 2, // حدد عدد السطور المسموح بها
-                                  value.popularResponse.results![value.index].title ?? "",
+                                  value.popularResponse.results![value.index]
+                                          .title ??
+                                      "",
                                   style: const TextStyle(
                                       overflow: TextOverflow.ellipsis,
-                                      fontSize: 14, color: ColorsManager.white),
+                                      fontSize: 14,
+                                      color: ColorsManager.white),
                                 ),
                                 SizedBox(height: 10.h),
                                 Text(
                                   maxLines: 1, // حدد عدد السطور المسموح بها
-                                  value.popularResponse.results![value.index].releaseDate ?? "",
+                                  value.popularResponse.results![value.index]
+                                          .releaseDate ??
+                                      "",
                                   style: TextStyle(
                                       overflow: TextOverflow.ellipsis,
-                                      fontSize: 10.sp, color: ColorsManager.hintDate),
+                                      fontSize: 10.sp,
+                                      color: ColorsManager.hintDate),
                                 ),
-                            
                               ],
                             ),
                           ),

@@ -29,7 +29,8 @@ class ReleasesWidget extends StatelessWidget
                 Padding(
                   padding: const EdgeInsets.only(left: 18, top: 15, bottom: 12),
                   child: Text(
-                    value.releasesResponse.results![value.index].title ?? "No Title Available", // التأكد من العنوان
+                    "New Releases",
+                    // value.releasesResponse.results![5].title ?? "No Title Available", // التأكد من العنوان
                     style: AppStyle.newReleaseTitle,
                   ),
                 ),

@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/core/utils/assets_manager.dart';
@@ -40,10 +41,22 @@ class ReleasesItem extends StatelessWidget {
                         child: InkWell(
                           onTap: (){
                             Navigator.of(context).pushNamed(RoutesManager.moviesDetails,);                },
-                            child: value.releasesResponse.results!=null?Image.network(
+                            child: CachedNetworkImage(
+                              imageUrl:
                               '$pathImageUrl${value.releasesResponse.results?[index].posterPath}',
                               fit: BoxFit.fill,
-                            ): const Center(child: CircularProgressIndicator())
+                              placeholder: (context, url) =>
+                              const Center(
+                                child:
+                                CircularProgressIndicator(), // مؤشر انتظار أثناء التحميل
+                              ),
+                              errorWidget: (context, url, error) =>
+                              const Icon(
+                                Icons.error,
+                                // ويدجت تظهر لو حصل خطأ في التحميل
+                                color: Colors.red,
+                              ),
+                            )
                         )),
                     InkWell(onTap: (){},
                         child: Image.asset(AssetsManager.bookMark ,fit: BoxFit.cover,height: 36.h,width: 27.w,)),

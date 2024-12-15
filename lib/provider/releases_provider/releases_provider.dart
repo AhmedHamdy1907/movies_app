@@ -18,7 +18,8 @@ class providerReleases extends ChangeNotifier
     try {
       final cheak =await ApiManagerReleases.getReleases();
       ;
-      if (cheak.statusCode == "200" || cheak.success != false) {
+      if (cheak.statusCode == "200" || cheak.success !=false)
+      {
         return cheak;
       } else {
         throw Exception('Error: Failed to fetch data from the server');
