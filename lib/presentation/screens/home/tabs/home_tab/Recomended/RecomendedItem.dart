@@ -8,6 +8,8 @@ import 'package:movies_app/core/utils/routes_manager.dart';
 import 'package:movies_app/presentation/screens/details/movies_details.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../../../provider/details_tap/details_film/detailsFilm.dart';
+import '../../../../../../provider/details_tap/more_like_this/more_like_this.dart';
 import '../../../../../../provider/home_tap/recommended_provider/recommended_provider.dart';
 class RecommendedItem extends StatelessWidget {
   int index = 0;
@@ -50,8 +52,11 @@ class RecommendedItem extends StatelessWidget {
                         width: 96.87.w,
                         child: InkWell(
                             onTap: () {
-                              Navigator.pushReplacementNamed(
-                                  context, RoutesManager.moviesDetails);
+                              // MoreLikeThisProvider more=MoreLikeThisProvider.id(id: value.recommendedResponse.results?[index].id);
+                              // detailsFilmProvider details=detailsFilmProvider.id(id: value.recommendedResponse.results?[index].id);
+                              MoreLikeThisProvider.id=value.recommendedResponse.results?[index].id;
+                              detailsFilmProvider.id=value.recommendedResponse.results?[index].id;
+                              Navigator.pushReplacementNamed(context, RoutesManager.moviesDetails);
                             },
                             child: CachedNetworkImage(
                               imageUrl: '$pathImageUrl${value.recommendedResponse.results?[index].posterPath}',

@@ -48,22 +48,17 @@ class MoreLikeThisItem extends StatelessWidget {
                     SizedBox(
                         height: 128.7.h,
                         width: 96.87.w,
-                        child: InkWell(
-                            onTap: () {
-                              Navigator.pushReplacementNamed(
-                                  context, RoutesManager.moviesDetails);
-                            },
-                            child: CachedNetworkImage(
-                              imageUrl: '$pathImageUrl${value.moreLikeThisResponse.results?[index].posterPath}',
-                              fit: BoxFit.fill,
-                              placeholder: (context, url) => const Center(
-                                child: CircularProgressIndicator(), // مؤشر انتظار أثناء التحميل
-                              ),
-                              errorWidget: (context, url, error) => const Icon(
-                                Icons.error, // ويدجت تظهر لو حصل خطأ في التحميل
-                                color: Colors.red,
-                              ),
-                            ))),
+                        child: CachedNetworkImage(
+                          imageUrl: '$pathImageUrl${value.moreLikeThisResponse.results?[index].posterPath}',
+                          fit: BoxFit.fill,
+                          placeholder: (context, url) => const Center(
+                            child: CircularProgressIndicator(), // مؤشر انتظار أثناء التحميل
+                          ),
+                          errorWidget: (context, url, error) => const Icon(
+                            Icons.error, // ويدجت تظهر لو حصل خطأ في التحميل
+                            color: Colors.red,
+                          ),
+                        )),
                     InkWell(
                         onTap: () {},
                         child: Image.asset(

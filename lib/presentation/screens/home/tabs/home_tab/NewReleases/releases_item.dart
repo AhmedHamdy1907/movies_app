@@ -7,6 +7,8 @@ import 'package:movies_app/core/utils/routes_manager.dart';
 import 'package:movies_app/presentation/screens/details/movies_details.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../../../provider/details_tap/details_film/detailsFilm.dart';
+import '../../../../../../provider/details_tap/more_like_this/more_like_this.dart';
 import '../../../../../../provider/home_tap/releases_provider/releases_provider.dart';
 
 
@@ -23,7 +25,7 @@ class ReleasesItem extends StatelessWidget {
           // لو البيانات لسه مش محملة، نعرض شاشة تحميل
           if (value.releasesResponse.results == null || value.releasesResponse.results!.isEmpty) {
             value.getDataReleases(); // طلب البيانات لو مش محملة
-            return Center(child: CircularProgressIndicator()); // شاشة تحميل
+            return const Center(child: CircularProgressIndicator()); // شاشة تحميل
           }
           return Container(
           decoration: BoxDecoration(
@@ -41,6 +43,10 @@ class ReleasesItem extends StatelessWidget {
                         width: 96.87.w,
                         child: InkWell(
                           onTap: (){
+                            // MoreLikeThisProvider more=MoreLikeThisProvider.id(id: value.releasesResponse.results?[index].id);
+                            // detailsFilmProvider details=detailsFilmProvider.id(id: value.releasesResponse.results?[index].id);
+                            detailsFilmProvider.id=value.releasesResponse.results?[index].id;
+                            MoreLikeThisProvider.id=value.releasesResponse.results?[index].id;
                             Navigator.of(context).pushNamed(RoutesManager.moviesDetails,);                },
                             child: CachedNetworkImage(
                               imageUrl:
