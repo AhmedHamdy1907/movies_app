@@ -4,7 +4,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 
 import '../../../data/api/api_home/call_api_popular/api_manager.dart';
-import '../../../data/model/home_Tap_Model/popular_movies/Popular_response.dart';
+import '../../../data/model/homeScreen_model/home_Tap_Model/popular_movies/Popular_response.dart';
 
 class PopularProvider extends ChangeNotifier
 {

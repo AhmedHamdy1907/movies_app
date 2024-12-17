@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 
 import '../../../data/api/api_home/call_api_recommended/api_recommended.dart';
-import '../../../data/model/home_Tap_Model/recommended/Recommended_response.dart';
+import '../../../data/model/homeScreen_model/home_Tap_Model/recommended/Recommended_response.dart';
 
 class RecommendedProvider extends ChangeNotifier
 {

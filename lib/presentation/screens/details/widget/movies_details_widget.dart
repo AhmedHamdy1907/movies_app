@@ -3,7 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/core/utils/app_style.dart';
 import 'package:movies_app/core/utils/color_manager.dart';
 
-import '../../../../data/model/details_tap_Model/details_film/DetailsResponse.dart';
+import '../../../../data/model/details_screen_Model/details_film/DetailsResponse.dart';
+
 
 class MoviesDetailsWidget extends StatelessWidget {
   final DetailsResponse detailsData; // غيرت المتغير لـ final لأنه في StatelessWidget

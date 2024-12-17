@@ -2,7 +2,8 @@ import 'dart:async';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:movies_app/data/api/api_details/details_film_api/details_film_api.dart';
-import '../../../data/model/details_tap_Model/details_film/DetailsResponse.dart';
+
+import '../../../data/model/details_screen_Model/details_film/DetailsResponse.dart';
 
 class detailsFilmProvider extends ChangeNotifier {
   static num? id;

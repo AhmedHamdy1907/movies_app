@@ -7,8 +7,6 @@ class RoutesManager{
    static const String splash = '/splash';
    static const String home = '/home';
    static const String moviesDetails = '/moviesDetails';
-
-
    static Route? router(RouteSettings settings) {
       switch (settings.name) {
          case splash:

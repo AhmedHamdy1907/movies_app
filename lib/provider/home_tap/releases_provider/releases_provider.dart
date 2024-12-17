@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 
 import '../../../data/api/api_home/call_api_releases/api_releases.dart';
-import '../../../data/model/home_Tap_Model/new_releases/Releases_response.dart';
+import '../../../data/model/homeScreen_model/home_Tap_Model/new_releases/Releases_response.dart';
 class providerReleases extends ChangeNotifier
 {
   bool _isDisposed = false;
@@ -17,11 +17,11 @@ class providerReleases extends ChangeNotifier
   ReleasesResponse releasesResponse=ReleasesResponse();
   Future<ReleasesResponse> data() async {
     try {
-      final cheak =await ApiManagerReleases.getReleases();
+      final check =await ApiManagerReleases.getReleases();
       ;
-      if (cheak.statusCode == "200" || cheak.success !=false)
+      if (check.statusCode == "200" || check.success !="false")
       {
-        return cheak;
+        return check;
       } else {
         throw Exception('Error: Failed to fetch data from the server');
       }
@@ -46,7 +46,6 @@ class providerReleases extends ChangeNotifier
     {
       notifyListeners();
     }
-
     @override
     void dispose() {
       _isDisposed = true;

@@ -1,9 +1,8 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-import '../../../model/home_Tap_Model/recommended/Recommended_response.dart';
+import '../../../model/homeScreen_model/home_Tap_Model/recommended/Recommended_response.dart';
 class ApiRecommended {
-
   // Uri.parse("https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1")
   static const  String  _authorization = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiODQ4MjI4ZjQ1YTU4NmYyN2I2YmE5MjBmZDc5MWI2ZCIsIm5iZiI6MTczMzE0MDUxNS42MDMwMDAyLCJzdWIiOiI2NzRkYTAyMzdjMWQ2OThiN2RmN2Y2ZDYiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.MA4D3UVIKOo6emEZPN6CyfmmYc_inw9QFim3Gc9hZ70";
   static const String _accept ="application/json";

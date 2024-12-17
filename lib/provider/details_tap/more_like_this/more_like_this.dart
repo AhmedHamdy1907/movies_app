@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import '../../../data/api/api_details/more_likeThis_api/moreLikeThis_api.dart';
-import '../../../data/model/details_tap_Model/more_like_this/MoreLikeThisResponse.dart';
+import '../../../data/model/details_screen_Model/more_like_this/MoreLikeThisResponse.dart';
 
 class MoreLikeThisProvider extends ChangeNotifier {
   static num? id;
