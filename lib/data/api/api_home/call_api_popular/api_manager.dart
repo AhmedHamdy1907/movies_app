@@ -11,11 +11,6 @@ class ApiManager {
  static const String _popularEndPoint="/3/movie/top_rated?";
  static const String _language="en-US";
  static const int _page=1;
-
-
-
-
-
  static Future<PopularResponse> getPopular()async
   {
     // Uri url  = Uri.https(_baseUrl,_popularEndPoint,

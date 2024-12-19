@@ -18,7 +18,7 @@ class RecommendedItem extends StatelessWidget {
   Widget build(BuildContext context) {
     const String pathImageUrl = "https://image.tmdb.org/t/p/w500";
     return ChangeNotifierProvider(
-      create: (context) => RecommendedProvider(),
+      create: (context) => RecommendedProvider()..data(),
       child: Consumer<RecommendedProvider>(
         builder: (context, value, child) {
           if (value.recommendedResponse.results == null ||
@@ -54,9 +54,13 @@ class RecommendedItem extends StatelessWidget {
                             onTap: () {
                               // MoreLikeThisProvider more=MoreLikeThisProvider.id(id: value.recommendedResponse.results?[index].id);
                               // detailsFilmProvider details=detailsFilmProvider.id(id: value.recommendedResponse.results?[index].id);
-                              MoreLikeThisProvider.id=value.recommendedResponse.results?[index].id;
-                              detailsFilmProvider.id=value.recommendedResponse.results?[index].id;
-                              Navigator.pushReplacementNamed(context, RoutesManager.moviesDetails);
+                              // MoreLikeThisProvider.id=value.recommendedResponse.results?[index].id;
+                              // detailsFilmProvider.id=value.recommendedResponse.results?[index].id;
+                              Navigator.pushReplacementNamed(
+                                context, // أول حاجة
+                                RoutesManager.moviesDetails, // اسم الـ Route
+                                arguments: value.recommendedResponse.results?[index].id, // الـ Arguments
+                              );
                             },
                             child: CachedNetworkImage(
                               imageUrl: '$pathImageUrl${value.recommendedResponse.results?[index].posterPath}',

@@ -4,16 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:movies_app/data/api/api_details/details_film_api/details_film_api.dart';
 
 import '../../../data/model/details_screen_Model/details_film/DetailsResponse.dart';
-
 class detailsFilmProvider extends ChangeNotifier {
-  static num? id;
+   num? id;
   DetailsResponse detailsResponse = DetailsResponse();
-  Future<DetailsResponse> data() async {
+  void data(   num? id) async {
     try {
       print(":قبل ماتروح لي ال API $id");
       final cheak = await getDetailsFilm.getdetailsFilm(id: id);
       if (cheak.statusCode == "200" || cheak.success != false) {
-        return cheak;
+        detailsResponse = await getDetailsFilm.getdetailsFilm(id: id);
+        notifyListeners();
       } else {
         throw Exception('Error: Failed to fetch data from the server');
       }
@@ -30,9 +30,9 @@ class detailsFilmProvider extends ChangeNotifier {
       }
     }
   }
-  void getdetailsFilme() async {
-    detailsResponse = await data();
-        notifyListeners();
-
-  }
+  // void getdetailsFilme() async {
+  //   detailsResponse = await data();
+  //       notifyListeners();
+  //
+  // }
 }

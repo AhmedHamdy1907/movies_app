@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/core/utils/app_style.dart';
 import 'package:movies_app/core/utils/color_manager.dart';
 import 'package:movies_app/core/utils/routes_manager.dart';
+import 'package:movies_app/data/model/details_screen_Model/details_film/DetailsResponse.dart';
 import 'package:movies_app/presentation/screens/details/widget/MoreLikeThisWidget/MoreLikeThisWidget.dart';
 import 'package:movies_app/presentation/screens/details/widget/movies_details_widget.dart';
 import 'package:provider/provider.dart';
@@ -11,19 +12,19 @@ import '../../../provider/details_tap/details_film/detailsFilm.dart';
 import '../../../provider/details_tap/more_like_this/more_like_this.dart';
 class MoviesDetails extends StatelessWidget {
   const MoviesDetails({super.key});
-
   @override
   Widget build(BuildContext context) {
+    final movieId = ModalRoute.of(context)?.settings.arguments as num?;
     const String pathImageUrl = "https://image.tmdb.org/t/p/w500";
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => detailsFilmProvider()..getdetailsFilme(),),
-        ChangeNotifierProvider(create: (context) => MoreLikeThisProvider()..getMoreLikeThis(),)
+        ChangeNotifierProvider(create: (context) => detailsFilmProvider()..data(movieId),),
+        ChangeNotifierProvider(create: (context) => MoreLikeThisProvider()..data(movieId),)
       ],
       child: Consumer2<detailsFilmProvider, MoreLikeThisProvider>(
         builder: (context, detailsvalue, MoreLikeThis, child) {
-          detailsvalue.getdetailsFilme();
-          MoreLikeThis.getMoreLikeThis();
+          // detailsvalue.data();
+          // MoreLikeThis.data();
           // if (value.detailsResponse.belongsToCollection == null ||
           //     value2.moreLikeThisResponse.results!.isEmpty) {
           //   return const Center(
@@ -40,35 +41,35 @@ class MoviesDetails extends StatelessWidget {
                 ),
                 backgroundColor: ColorsManager.appBarColor,
                 title: Text(
-                  maxLines: 1, // حدد عدد السطور المسموح بها
-                  detailsvalue.detailsResponse.title ??
-                      "",
-                  style: AppStyle.moviesDetailsTitle
+                    maxLines: 1, // حدد عدد السطور المسموح بها
+                    detailsvalue.detailsResponse.title ??
+                        "",
+                    style: AppStyle.moviesDetailsTitle
                 ),
               ),
               body: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-              SizedBox(
-                width: double.infinity,
-                height: 217,
-                child: CachedNetworkImage(
-                imageUrl:
-                '$pathImageUrl${detailsvalue.detailsResponse.posterPath}',
-                  fit: BoxFit.fill,
-                  placeholder: (context, url) =>
-                  const Center(
-                    child:
-                    CircularProgressIndicator(), // مؤشر انتظار أثناء التحميل
-                  ),
-                  errorWidget: (context, url, error) =>
-                  const Icon(
-                    Icons.error,
-                    // ويدجت تظهر لو حصل خطأ في التحميل
-                    color: Colors.red,
-                  ),
-                ),
-              ), SizedBox(height: 13.h),
+                  SizedBox(
+                    width: double.infinity,
+                    height: 217,
+                    child: CachedNetworkImage(
+                      imageUrl:
+                      '$pathImageUrl${detailsvalue.detailsResponse.posterPath}',
+                      fit: BoxFit.fill,
+                      placeholder: (context, url) =>
+                      const Center(
+                        child:
+                        CircularProgressIndicator(), // مؤشر انتظار أثناء التحميل
+                      ),
+                      errorWidget: (context, url, error) =>
+                      const Icon(
+                        Icons.error,
+                        // ويدجت تظهر لو حصل خطأ في التحميل
+                        color: Colors.red,
+                      ),
+                    ),
+                  ), SizedBox(height: 13.h),
                   Padding(
                     padding: REdgeInsets.symmetric(horizontal: 10),
                     child: Column(
@@ -132,7 +133,7 @@ class MoviesDetails extends StatelessWidget {
                                 ),
                               ),
                             ),
-                             MoviesDetailsWidget(detailsData: detailsvalue.detailsResponse,),
+                            MoviesDetailsWidget(detailsData: detailsvalue.detailsResponse,),
                           ],
                         ),
                         const Morelikethiswidget()
@@ -147,15 +148,4 @@ class MoviesDetails extends StatelessWidget {
       ),
     );
   }
-  }
-
-
-
-
-
-
-
-
-
-
-
+}

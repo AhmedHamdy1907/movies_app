@@ -11,12 +11,13 @@ class Morelikethiswidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final movieId = ModalRoute.of(context)?.settings.arguments as int?;
     return ChangeNotifierProvider(
       create: (context) => MoreLikeThisProvider(),
       child: Consumer<MoreLikeThisProvider>(
         builder: (context, value, child) {
           if (value.moreLikeThisResponse.results == null || value.moreLikeThisResponse.results!.isEmpty) {
-            value.getMoreLikeThis(); // إذا كانت البيانات غير محملة، نطلبها هنا
+            value.data(movieId); // إذا كانت البيانات غير محملة، نطلبها هنا
             return const Center(child: CircularProgressIndicator()); // نعرض شاشة تحميل حتى يتم تحميل البيانات
           }
           return Padding(

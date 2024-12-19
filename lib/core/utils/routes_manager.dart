@@ -11,15 +11,18 @@ class RoutesManager{
       switch (settings.name) {
          case splash:
             return MaterialPageRoute(
+               settings: settings,
                builder: (context) => const Splash(),
             );
          case home:
             return MaterialPageRoute(
-               builder: (context) => Home(),
+               settings: settings,
+               builder: (context) => const Home(),
             );
          case moviesDetails:
             return MaterialPageRoute(
-               builder: (context) => MoviesDetails(),
+               settings: settings,
+               builder: (context) => const MoviesDetails(),
             );
       }
    }

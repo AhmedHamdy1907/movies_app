@@ -14,6 +14,7 @@ class MoreLikeThisItem extends StatelessWidget {
   MoreLikeThisItem({super.key,required this.index});
   @override
   Widget build(BuildContext context) {
+    final movieId = ModalRoute.of(context)?.settings.arguments as int?;
     const String pathImageUrl = "https://image.tmdb.org/t/p/w500";
     return ChangeNotifierProvider(
       create: (context) => MoreLikeThisProvider(),
@@ -21,7 +22,7 @@ class MoreLikeThisItem extends StatelessWidget {
         builder: (context, value, child) {
           if (value.moreLikeThisResponse.results == null ||
               value.moreLikeThisResponse.results!.isEmpty) {
-            value.getMoreLikeThis(); // إذا كانت البيانات غير محملة، نطلبها هنا
+            value.data(movieId); // إذا كانت البيانات غير محملة، نطلبها هنا
             return const Center(
                 child:
                 CircularProgressIndicator()); // نعرض شاشة تحميل حتى يتم تحميل البيانات

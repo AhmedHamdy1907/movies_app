@@ -9,10 +9,8 @@ import '../../../../../../core/utils/routes_manager.dart';
 import '../../../../../../provider/details_tap/details_film/detailsFilm.dart';
 import '../../../../../../provider/details_tap/more_like_this/more_like_this.dart';
 import '../../../../../../provider/home_tap/popular_provider/provider_data.dart';
-
 class PopularWidget extends StatelessWidget {
   const PopularWidget({super.key});
-
   @override
   Widget build(BuildContext context) {
     const String pathImageUrl = "https://image.tmdb.org/t/p/w500";
@@ -20,9 +18,9 @@ class PopularWidget extends StatelessWidget {
       create: (context) => PopularProvider(),
       child: Consumer< PopularProvider>(
         builder: (context, value, child) {
-          if (value.popularResponse.results == null ||
-              value.popularResponse.results!.isEmpty) {
-            value.getDataPopular();
+          if (value.popularResponse!.results == null ||
+              value.popularResponse!.results!.isEmpty) {
+            value.data();
             return const Center(
                 child:
                     CircularProgressIndicator()); // نعرض شاشة تحميل حتى يتم تحميل البيانات
@@ -41,11 +39,11 @@ class PopularWidget extends StatelessWidget {
                       onPageChanged: (index, reason) {
                         value.changeindex(index);
                       }),
-                  items: value.popularResponse.results!.map((e) {
+                  items: value.popularResponse!.results!.map((e) {
                     return SizedBox(
                         height: 217.h,
                         width: double.infinity,
-                        child: value.popularResponse.results != null
+                        child: value.popularResponse!.results != null
                             ? Image.network(
                                 '$pathImageUrl${e.backdropPath!}',
                                 fit: BoxFit.fill,
@@ -76,13 +74,15 @@ class PopularWidget extends StatelessWidget {
                                       onTap: () {
                                         // MoreLikeThisProvider more=MoreLikeThisProvider.id(id: value.popularResponse.results?[value.index].id);
                                         // detailsFilmProvider details=detailsFilmProvider.id(id: value.popularResponse.results?[value.index].id);
-                                        MoreLikeThisProvider.id=value.popularResponse.results?[value.index].id;
-                                        detailsFilmProvider.id=value.popularResponse.results?[value.index].id;
-                                        Navigator.pushReplacementNamed(context, RoutesManager.moviesDetails);
+                                        // MoreLikeThisProvider.id=value.popularResponse!.results?[value.index].id;
+                                        // detailsFilmProvider.id=value.popularResponse!.results?[value.index].id;
+                                        Navigator.pushReplacementNamed(
+                                          arguments: value.popularResponse!.results?[value.index].id,
+                                            context, RoutesManager.moviesDetails);
                                       },
                                       child: CachedNetworkImage(
                                         imageUrl:
-                                            '$pathImageUrl${value.popularResponse.results?[value.index].posterPath}',
+                                            '$pathImageUrl${value.popularResponse!.results?[value.index].posterPath}',
                                         fit: BoxFit.fill,
                                         placeholder: (context, url) =>
                                             const Center(
@@ -102,7 +102,7 @@ class PopularWidget extends StatelessWidget {
                                       height: 140.h,
                                       width: 100.w,
                                       child: Image.asset(
-                                        value.popularResponse.results != null
+                                        value.popularResponse!.results != null
                                             ? AssetsManager.bookMark
                                             : "",
                                         fit: BoxFit.cover,
@@ -121,7 +121,7 @@ class PopularWidget extends StatelessWidget {
                                 SizedBox(height: 115.h),
                                 Text(
                                   maxLines: 2, // حدد عدد السطور المسموح بها
-                                  value.popularResponse.results![value.index]
+                                  value.popularResponse!.results![value.index]
                                           .title ??
                                       "",
                                   style: const TextStyle(
@@ -132,7 +132,7 @@ class PopularWidget extends StatelessWidget {
                                 SizedBox(height: 10.h),
                                 Text(
                                   maxLines: 1, // حدد عدد السطور المسموح بها
-                                  value.popularResponse.results![value.index]
+                                  value.popularResponse!.results![value.index]
                                           .releaseDate ??
                                       "",
                                   style: TextStyle(

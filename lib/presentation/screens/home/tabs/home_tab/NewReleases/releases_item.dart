@@ -45,9 +45,11 @@ class ReleasesItem extends StatelessWidget {
                           onTap: (){
                             // MoreLikeThisProvider more=MoreLikeThisProvider.id(id: value.releasesResponse.results?[index].id);
                             // detailsFilmProvider details=detailsFilmProvider.id(id: value.releasesResponse.results?[index].id);
-                            detailsFilmProvider.id=value.releasesResponse.results?[index].id;
-                            MoreLikeThisProvider.id=value.releasesResponse.results?[index].id;
-                            Navigator.of(context).pushNamed(RoutesManager.moviesDetails,);                },
+                            // detailsFilmProvider.id=value.releasesResponse.results?[index].id;
+                            // MoreLikeThisProvider.id=value.releasesResponse.results?[index].id;
+                            Navigator.of(context).pushNamed(
+                              arguments: value.releasesResponse.results?[index].id,
+                              RoutesManager.moviesDetails,);        },
                             child: CachedNetworkImage(
                               imageUrl:
                               '$pathImageUrl${value.releasesResponse.results?[index].posterPath}',

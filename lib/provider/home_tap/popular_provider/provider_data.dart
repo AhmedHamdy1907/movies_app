@@ -16,13 +16,15 @@ class PopularProvider extends ChangeNotifier
     index=newindex;
     notifyListeners();
   }
-  PopularResponse popularResponse=PopularResponse();
-  Future<PopularResponse> data() async {
+  PopularResponse? popularResponse=PopularResponse();
+ void data() async {
     try {
       final cheak = await ApiManager.getPopular();
       if (cheak.statusCode == "200" || cheak.success !=false)
       {
-        return cheak;
+        popularResponse = await ApiManager.getPopular() ;
+        notifyListeners();
+
       }
       else {
         throw Exception('Error: Failed to fetch data from the server');
@@ -40,19 +42,19 @@ class PopularProvider extends ChangeNotifier
       }
     }
   }
- void getDataPopular() async
- {
-   if (_isDisposed) return;
-   popularResponse = await data();
-   if (!_isDisposed)
-   {
-     notifyListeners();
-   }
- }
- @override
-  void dispose() {
-   _isDisposed = true;
-   super.dispose();
-  }
+ // void getDataPopular() async
+ // {
+ //   if (_isDisposed) return;
+ //   popularResponse = await data();
+ //   if (!_isDisposed)
+ //   {
+ //     notifyListeners();
+ //   }
+ // }
+ // @override
+ //  void dispose() {
+ //   _isDisposed = true;
+ //   super.dispose();
+ //  }
 }
 

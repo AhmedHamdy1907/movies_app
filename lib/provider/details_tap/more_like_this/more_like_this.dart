@@ -5,14 +5,14 @@ import '../../../data/api/api_details/more_likeThis_api/moreLikeThis_api.dart';
 import '../../../data/model/details_screen_Model/more_like_this/MoreLikeThisResponse.dart';
 
 class MoreLikeThisProvider extends ChangeNotifier {
-  static num? id;
   MoreLikeThisResponse moreLikeThisResponse = MoreLikeThisResponse();
-  Future<MoreLikeThisResponse> data() async {
+  void data(num? id) async {
     try {
       print(":قبل ماتروح لي ال API $id");
       final cheak = await getApiMoreLikeThis.getMoreLikeThis(id: id);
       if (cheak.statusCode == "200" || cheak.success != false) {
-        return cheak;
+        moreLikeThisResponse = await getApiMoreLikeThis.getMoreLikeThis(id: id);
+        notifyListeners();
       } else {
         throw Exception('Error: Failed to fetch data from the server');
       }
@@ -29,8 +29,8 @@ class MoreLikeThisProvider extends ChangeNotifier {
       }
     }
   }
-  void getMoreLikeThis() async {
-      moreLikeThisResponse = await data();
-      notifyListeners();
-  }
+  // void getMoreLikeThis() async {
+  //     moreLikeThisResponse = await data();
+  //     notifyListeners();
+  // }
 }
