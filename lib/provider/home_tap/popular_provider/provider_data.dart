@@ -20,7 +20,7 @@ class PopularProvider extends ChangeNotifier
  void data() async {
     try {
       final cheak = await ApiManager.getPopular();
-      if (cheak.statusCode == "200" || cheak.success !=false)
+      if (cheak.statusCode == "200" || cheak.success !="false")
       {
         popularResponse = await ApiManager.getPopular() ;
         notifyListeners();

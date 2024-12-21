@@ -10,7 +10,7 @@ class MoreLikeThisProvider extends ChangeNotifier {
     try {
       print(":قبل ماتروح لي ال API $id");
       final cheak = await getApiMoreLikeThis.getMoreLikeThis(id: id);
-      if (cheak.statusCode == "200" || cheak.success != false) {
+      if (cheak.statusCode == "200" || cheak.success != "false") {
         moreLikeThisResponse = await getApiMoreLikeThis.getMoreLikeThis(id: id);
         notifyListeners();
       } else {

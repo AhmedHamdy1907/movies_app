@@ -7,11 +7,10 @@ import '../../../data/model/details_screen_Model/details_film/DetailsResponse.da
 class detailsFilmProvider extends ChangeNotifier {
    num? id;
   DetailsResponse detailsResponse = DetailsResponse();
-  void data(   num? id) async {
+  void data(num? id) async {
     try {
-      print(":قبل ماتروح لي ال API $id");
       final cheak = await getDetailsFilm.getdetailsFilm(id: id);
-      if (cheak.statusCode == "200" || cheak.success != false) {
+      if (cheak.statusCode == "200" || cheak.success != "false") {
         detailsResponse = await getDetailsFilm.getdetailsFilm(id: id);
         notifyListeners();
       } else {

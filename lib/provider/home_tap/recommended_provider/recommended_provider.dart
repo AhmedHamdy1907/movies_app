@@ -14,7 +14,7 @@ class RecommendedProvider extends ChangeNotifier
    try {
      final cheak =await ApiRecommended.getRecommended();
      ;
-     if (cheak.statusCode == "200" || cheak.success !=false)
+     if (cheak.statusCode == "200" || cheak.success !="false")
      {
        return cheak;
      } else {
