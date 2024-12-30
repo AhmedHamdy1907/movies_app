@@ -78,11 +78,11 @@ class SearchTab extends StatelessWidget {
   {
     return InputDecoration(
         errorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(40),
+            borderRadius: BorderRadius.circular(40.r),
             borderSide: const BorderSide(color: Colors.red,width: 2)
         ),
         border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(15),
+            borderRadius: BorderRadius.circular(15.r),
             borderSide: const BorderSide(color: Colors.white,width: 2)
         ),
         prefixIcon: const Icon(
@@ -92,11 +92,11 @@ class SearchTab extends StatelessWidget {
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(
               color: ColorsManager.white, width: 1.w),
-          borderRadius: BorderRadius.circular(40),
+          borderRadius: BorderRadius.circular(40.r),
         ),
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide(
-              color: ColorsManager.darkGray, width: 1.w),
+              color: ColorsManager.darkGray, width: 1.w.r),
           borderRadius: BorderRadius.circular(40),
         )
     );

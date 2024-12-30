@@ -7,8 +7,8 @@ import '../../../../../../provider/home_tap/recommended_provider/recommended_pro
 import 'RecomendedItem.dart';
 
 class Recommended extends StatelessWidget {
-  // bool isNavigate;
-  Recommended({super.key,});
+  Recommended({super.key});
+
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
@@ -20,35 +20,36 @@ class Recommended extends StatelessWidget {
             return const Center(child: CircularProgressIndicator()); // نعرض شاشة تحميل حتى يتم تحميل البيانات
           }
           return Padding(
-          padding:  REdgeInsets.only(top: 10.h),
-          child: Container(
-            color: ColorsManager.black2,
-            height: 246.h ,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 18,top: 10 ,bottom: 12),
-                  child: Text("Recommended",style: AppStyle.newReleaseTitle),
-                ),
-                Expanded(
-                  child: ListView.builder(
-                      padding: const EdgeInsets.only(left: 18,), // إلغاء المسافات من فوق وتحت
+            padding: REdgeInsets.only(top: 10.h),
+            child: Container(
+              color: ColorsManager.black2,
+              height: 250.h,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: REdgeInsets.only(left: 18.w, top: 10.h, bottom: 12.h),
+                    child: Text("Recommended", style: AppStyle.newReleaseTitle),
+                  ),
+                  SizedBox(
+                    height: 190.h,
+                    child: ListView.builder(
+                      padding: REdgeInsets.only(left: 18.w), // إلغاء المسافات من فوق وتحت
                       scrollDirection: Axis.horizontal,
                       itemCount: value.recommendedResponse.results?.length,
-                      itemBuilder: (context, index) =>    Padding(
-                        padding: const EdgeInsets.only(right:13),
-                        child: RecommendedItem(index: index,),
-                      )),
-                ),
-                SizedBox(height: 10.h,)
-              ],
+                      itemBuilder: (context, index) => Padding(
+                        padding: REdgeInsets.only(right: 13.w),
+                        child: RecommendedItem(index: index),
+                      ),
+                    ),
+                  ),
+                  // SizedBox(height: 10.h),
+                ],
+              ),
             ),
-          ),
-        );
-          },
+          );
+        },
       ),
     );
-
   }
 }

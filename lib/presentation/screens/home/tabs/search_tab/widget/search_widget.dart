@@ -57,7 +57,7 @@ class SearchWidget extends StatelessWidget {
                 ),
                 Text(
                   results?[index].releaseDate?.split('-')[0] ?? '',
-                  style: AppStyle.movieDetails.copyWith(fontSize: 16),
+                  style: AppStyle.movieDetails.copyWith(fontSize: 16.sp),
                 ),
                 Text(
                   results?[index].originalTitle??"",

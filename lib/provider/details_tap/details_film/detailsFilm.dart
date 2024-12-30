@@ -16,7 +16,12 @@ class detailsFilmProvider extends ChangeNotifier {
       } else {
         throw Exception('Error: Failed to fetch data from the server');
       }
-    } catch (e) {
+    }
+
+
+
+
+    catch (e) {
       if (e is SocketException) {
         print('No internet connection');
         throw Exception('No internet connection');

@@ -53,72 +53,70 @@ class PopularWidget extends StatelessWidget {
                   }).toList(),
                 ),
                 Positioned(
-                  top: 90.h,
+                  top: 90.h ,
                   child: Padding(
                     padding: REdgeInsets.only(left: 20.w),
                     child: SizedBox(
-                      width: 400.w,
+                      width:400.w,
                       child: Row(
                         children: [
-                          Container(
+                          SizedBox(
                             height: 199.h,
-                            width: 129.w,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(4.r),
-                            ),
+                            width: 118.w,
+                            // decoration: BoxDecoration(
+                            //   borderRadius: BorderRadius.circular(50.r),
+                            // ),
                             child: FittedBox(
-                              fit: BoxFit.cover,
-                              child: Stack(
-                                children: [
-                                  InkWell(
-                                      onTap: () {
-                                        // MoreLikeThisProvider more=MoreLikeThisProvider.id(id: value.popularResponse.results?[value.index].id);
-                                        // detailsFilmProvider details=detailsFilmProvider.id(id: value.popularResponse.results?[value.index].id);
-                                        // MoreLikeThisProvider.id=value.popularResponse!.results?[value.index].id;
-                                        // detailsFilmProvider.id=value.popularResponse!.results?[value.index].id;
-                                        Navigator.pushReplacementNamed(
-                                          arguments: value.popularResponse!.results?[value.index].id,
-                                            context, RoutesManager.moviesDetails);
-                                      },
-                                      child: CachedNetworkImage(
-                                        imageUrl:
-                                            '$pathImageUrl${value.popularResponse!.results?[value.index].posterPath}',
+                              fit: BoxFit.fill,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(8.r),
+                                child: Stack(
+                                  children: [
+                                    InkWell(
+                                        onTap: () {
+                                          Navigator.pushReplacementNamed(
+                                            arguments: value.popularResponse!.results?[value.index].id,
+                                              context, RoutesManager.moviesDetails);
+                                        },
+                                        child: CachedNetworkImage(
+                                          imageUrl:
+                                              '$pathImageUrl${value.popularResponse!.results?[value.index].posterPath}',
+                                          fit: BoxFit.fill,
+                                          placeholder: (context, url) =>
+                                              const Center(
+                                            child:
+                                                CircularProgressIndicator(), // مؤشر انتظار أثناء التحميل
+                                          ),
+                                          errorWidget: (context, url, error) =>
+                                              const Icon(
+                                            Icons.error,
+                                      // ويدجت تظهر لو حصل خطأ في التحميل
+                                            color: Colors.red,
+                                          ),
+                                        )),
+                                    InkWell(
+                                      onTap: () {},
+                                      child: FittedBox(
                                         fit: BoxFit.fill,
-                                        placeholder: (context, url) =>
-                                            const Center(
-                                          child:
-                                              CircularProgressIndicator(), // مؤشر انتظار أثناء التحميل
+                                        child: Icon(
+                                          Icons.add_box_outlined,
+                                          color: Colors.white,
+                                          size: 100.sp,  // استخدم sp بدلاً من الحجم الثابت لتحديد الحجم بناءً على حجم الشاشة
                                         ),
-                                        errorWidget: (context, url, error) =>
-                                            const Icon(
-                                          Icons.error,
-      // ويدجت تظهر لو حصل خطأ في التحميل
-                                          color: Colors.red,
-                                        ),
-                                      )),
-                                  InkWell(
-                                    onTap: () {},
-                                    child: SizedBox(
-                                      height: 140.h,
-                                      width: 100.w,
-                                      child: Image.asset(
-                                        value.popularResponse!.results != null
-                                            ? AssetsManager.bookMark
-                                            : "",
-                                        fit: BoxFit.cover,
                                       ),
-                                    ),
-                                  ),
-                                ],
+                                    )
+                                  ],
+                                ),
                               ),
                             ),
                           ),
                           SizedBox(width: 20.w),
-                          Expanded(
+                          SizedBox(
+                            width: 230.w,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                SizedBox(height: 115.h),
+                                SizedBox(height: 130.h),
                                 Text(
                                   maxLines: 2, // حدد عدد السطور المسموح بها
                                   value.popularResponse!.results![value.index]
@@ -157,134 +155,4 @@ class PopularWidget extends StatelessWidget {
   }
 }
 
-//  const Center(
-// child:
-// CircularProgressIndicator()); // نعرض شاشة تحميل حتى يتم تحميل البيانات
-// }
-// return SizedBox(
-// height: 289.h,
-// width: double.infinity,
-// child: Stack(
-// children: [
-// CarouselSlider(
-// options: CarouselOptions(
-// pauseAutoPlayOnTouch: true,
-// autoPlay: true,
-// height: 217.h,
-// viewportFraction: 1,
-// onPageChanged: (index, reason) {
-// value.changeindex(index);
-// }),
-// items: value.popularResponse.results!.map((e) {
-// return SizedBox(
-// height: 217.h,
-// width: double.infinity,
-// child: value.popularResponse.results != null
-// ? Image.network(
-// '$pathImageUrl${e.backdropPath!}',
-// fit: BoxFit.fill,
-// )
-//     : const Center(child: CircularProgressIndicator()));
-// }).toList(),
-// ),
-// Positioned(
-// top: 90.h,
-// child: Padding(
-// padding: REdgeInsets.only(left: 20.w),
-// child: SizedBox(
-// width: 400.w,
-// child: Row(
-// children: [
-// Container(
-// height: 199.h,
-// width: 129.w,
-// decoration: BoxDecoration(
-// borderRadius: BorderRadius.circular(4.r),
-// ),
-// child: FittedBox(
-// fit: BoxFit.cover,
-// child: Stack(
-// children: [
-// InkWell(
-// onTap: () {
-// Navigator.of(context)
-//     .pushNamedAndRemoveUntil(
-// RoutesManager.moviesDetails,
-// (route) =>
-// route.settings.name !=
-// RoutesManager.moviesDetails,
-// );
-// },
-// child: CachedNetworkImage(
-// imageUrl:
-// '$pathImageUrl${value.popularResponse.results?[value.index].posterPath}',
-// fit: BoxFit.fill,
-// placeholder: (context, url) =>
-// const Center(
-// child:
-// CircularProgressIndicator(), // مؤشر انتظار أثناء التحميل
-// ),
-// errorWidget: (context, url, error) =>
-// const Icon(
-// Icons.error,
-// // ويدجت تظهر لو حصل خطأ في التحميل
-// color: Colors.red,
-// ),
-// )
-//
-// ),
-// InkWell(
-// onTap: () {},
-// child: SizedBox(
-// height: 140.h,
-// width: 100.w,
-// child: Image.asset(
-// value.popularResponse.results!=null?
-// AssetsManager.bookMark:"",
-// fit: BoxFit.cover,
-// ),
-// ),
-// ),
-// ],
-// ),
-// ),
-// ),
-// SizedBox(width: 20.w),
-// Expanded(
-// child: Column(
-// crossAxisAlignment: CrossAxisAlignment.start,
-// children: [
-// SizedBox(height: 115.h),
-// Text(
-// maxLines: 2, // حدد عدد السطور المسموح بها
-// value.popularResponse.results![value.index]
-//     .title ??
-// "",
-// style: const TextStyle(
-// overflow: TextOverflow.ellipsis,
-// fontSize: 14,
-// color: ColorsManager.white),
-// ),
-// SizedBox(height: 10.h),
-// Text(
-// maxLines: 1, // حدد عدد السطور المسموح بها
-// value.popularResponse.results![value.index]
-//     .releaseDate ??
-// "",
-// style: TextStyle(
-// overflow: TextOverflow.ellipsis,
-// fontSize: 10.sp,
-// color: ColorsManager.hintDate),
-// ),
-// ],
-// ),
-// ),
-// ],
-// ),
-// ),
-// ),
-// ),
-// ],
-// ),
-// );
-// },
+

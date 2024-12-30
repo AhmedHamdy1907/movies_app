@@ -11,14 +11,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(412, 870),
-
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: Apptheme.theme,
-        onGenerateRoute: RoutesManager.router,
-        initialRoute: RoutesManager.splash,
-      ),
+      designSize: const Size(412, 892), // الحجم المرجعي للشاشة
+      builder: (context, child) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          theme: Apptheme.theme,
+          onGenerateRoute: RoutesManager.router,
+          initialRoute: RoutesManager.splash,
+        );
+      },
     );
   }
 }

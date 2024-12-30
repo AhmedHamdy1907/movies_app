@@ -29,7 +29,7 @@ class RecommendedItem extends StatelessWidget {
                     CircularProgressIndicator()); // نعرض شاشة تحميل حتى يتم تحميل البيانات
           }
           return Container(
-            width: 97.w,
+            width: 96.87.w,
             // height: 200.h,
             decoration: BoxDecoration(
                 border: Border.all(color: ColorsManager.darkGrey2, width: 1.w),
@@ -43,9 +43,9 @@ class RecommendedItem extends StatelessWidget {
                 ],
                 borderRadius: BorderRadius.circular(5.r)),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Stack(
+                  alignment: Alignment.topLeft,
                   children: [
                     SizedBox(
                         height: 128.7.h,
@@ -73,14 +73,10 @@ class RecommendedItem extends StatelessWidget {
                                 color: Colors.red,
                               ),
                             ))),
-                    InkWell(
-                        onTap: () {},
-                        child: Image.asset(
-                          AssetsManager.bookMark,
-                          fit: BoxFit.fill,
-                          height: 36.h,
-                          width: 27.w,
-                        )),
+                    InkWell(onTap: (){},
+                        child: FittedBox(
+                            fit: BoxFit.fill,
+                            child: Icon(Icons.add_box_outlined,color: Colors.white,size: 25.sp,))),
                   ],
                 ),
                 SizedBox(
@@ -113,9 +109,9 @@ class RecommendedItem extends StatelessWidget {
                       Text(
                         maxLines: 1, // حدد عدد السطور المسموح بها
                         value.recommendedResponse.results![index].title ?? "",
-                        style: const TextStyle(
+                        style:  TextStyle(
                             overflow: TextOverflow.ellipsis,
-                            fontSize: 14,
+                            fontSize: 10.sp,
                             color: ColorsManager.white),
                         textAlign: TextAlign.start,
                       ),
@@ -125,9 +121,9 @@ class RecommendedItem extends StatelessWidget {
                       Text(
                         maxLines: 1, // حدد عدد السطور المسموح بها
                         value.recommendedResponse.results![index].releaseDate ?? "",
-                        style: const TextStyle(
+                        style:  TextStyle(
                             overflow: TextOverflow.ellipsis,
-                            fontSize: 10,
+                            fontSize: 8.sp,
                             color: ColorsManager.grey),
                         textAlign: TextAlign.start,
                       ),

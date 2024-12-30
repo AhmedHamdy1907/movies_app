@@ -18,12 +18,12 @@ class ReleasesWidget extends StatelessWidget
           // لو البيانات لسه مش محملة، نعرض شاشة تحميل
           if (value.releasesResponse.results == null || value.releasesResponse.results!.isEmpty) {
             value.getDataReleases(); // طلب البيانات لو مش محملة
-            return Center(child: CircularProgressIndicator()); // شاشة تحميل
+            return const Center(child: CircularProgressIndicator()); // شاشة تحميل
           }
           // لو البيانات جاهزة نعرض الـ ListView
           return Container(
             color: ColorsManager.black2,
-            height: 187.h,
+            height: 195.h,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -47,6 +47,8 @@ class ReleasesWidget extends StatelessWidget
                     },
                   ),
                 ),
+                Container(
+                  height: 13.h,)
               ],
             ),
           );

@@ -12,7 +12,7 @@ class DetailsResponse {
   String? backdropPath;
   BelongsToCollection? belongsToCollection;
   num? budget;
-  List<Genres>? genres;
+  List<GenresBrowser>? genres;
   String? homepage;
   num? id;
   String? imdbId;
@@ -76,7 +76,7 @@ class DetailsResponse {
     if (json['genres'] != null) {
       genres = [];
       json['genres'].forEach((v) {
-        genres?.add(Genres.fromJson(v));
+        genres?.add(GenresBrowser.fromJson(v));
       });
     }
     homepage = json['homepage'];

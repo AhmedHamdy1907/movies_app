@@ -11,10 +11,10 @@ class HomeTab extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-           const PopularWidget(),
-        SizedBox(height: 15.h,),
-           const ReleasesWidget(),
-        SizedBox(height: 15.h,),
+        const PopularWidget(),
+        SizedBox(height: 24.h),
+        const ReleasesWidget(),
+        SizedBox(height: 15.h),
         Recommended(),
       ],
     );

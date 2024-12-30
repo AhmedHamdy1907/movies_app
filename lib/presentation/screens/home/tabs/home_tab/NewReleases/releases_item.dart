@@ -28,50 +28,52 @@ class ReleasesItem extends StatelessWidget {
             return const Center(child: CircularProgressIndicator()); // شاشة تحميل
           }
           return Container(
-          decoration: BoxDecoration(
+            width: 96.87.w,
+            decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(5.r)
           ),
           child: Padding(
             padding:  REdgeInsets.only(right: 13,),
-            child: Row(
-              children: [
-                // const SizedBox(width: 13,),
-                Stack(
-                  children: [
-                    SizedBox(
-                      height: 127.74.h,
-                        width: 96.87.w,
-                        child: InkWell(
-                          onTap: (){
-                            // MoreLikeThisProvider more=MoreLikeThisProvider.id(id: value.releasesResponse.results?[index].id);
-                            // detailsFilmProvider details=detailsFilmProvider.id(id: value.releasesResponse.results?[index].id);
-                            // detailsFilmProvider.id=value.releasesResponse.results?[index].id;
-                            // MoreLikeThisProvider.id=value.releasesResponse.results?[index].id;
-                            Navigator.of(context).pushNamed(
-                              arguments: value.releasesResponse.results?[index].id,
-                              RoutesManager.moviesDetails,);        },
-                            child: CachedNetworkImage(
-                              imageUrl:
-                              '$pathImageUrl${value.releasesResponse.results?[index].posterPath}',
+            child: FittedBox(
+              fit:  BoxFit.fill,
+              child: Row(
+                children: [
+                  // const SizedBox(width: 13,),
+                  Stack(
+                    alignment: Alignment.topLeft,
+                    children: [
+                      SizedBox(
+                          child: InkWell(
+                            onTap: (){
+                              Navigator.of(context).pushNamed(
+                                arguments: value.releasesResponse.results?[index].id,
+                                RoutesManager.moviesDetails,);
+                              },
+                              child: CachedNetworkImage(
+                                imageUrl:
+                                '$pathImageUrl${value.releasesResponse.results?[index].posterPath}',
+                                fit: BoxFit.fill,
+                                placeholder: (context, url) =>
+                                const Center(
+                                  child:
+                                  CircularProgressIndicator(), // مؤشر انتظار أثناء التحميل
+                                ),
+                                errorWidget: (context, url, error) =>
+                                const Icon(
+                                  Icons.error,
+                                  // ويدجت تظهر لو حصل خطأ في التحميل
+                                  color: Colors.red,
+                                ),
+                              )
+                          )),
+                      InkWell(onTap: (){},
+                          child: FittedBox(
                               fit: BoxFit.fill,
-                              placeholder: (context, url) =>
-                              const Center(
-                                child:
-                                CircularProgressIndicator(), // مؤشر انتظار أثناء التحميل
-                              ),
-                              errorWidget: (context, url, error) =>
-                              const Icon(
-                                Icons.error,
-                                // ويدجت تظهر لو حصل خطأ في التحميل
-                                color: Colors.red,
-                              ),
-                            )
-                        )),
-                    InkWell(onTap: (){},
-                        child: Image.asset(AssetsManager.bookMark ,fit: BoxFit.cover,height: 36.h,width: 27.w,)),
-                  ],
-                ),
-              ],
+                              child: Icon(Icons.add_box_outlined,color: Colors.white,size: 150.sp,))),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         );},

@@ -9,7 +9,7 @@ class AppStyle{
   static TextStyle movieTitle = GoogleFonts.inter(fontSize: 14.sp, fontWeight: FontWeight.w400, color: ColorsManager.white);
   static TextStyle movieDate = GoogleFonts.inter(fontSize: 10.sp, fontWeight: FontWeight.w400, color: ColorsManager.hintDate);
   static TextStyle newReleaseTitle = GoogleFonts.inter(fontSize: 15.sp, fontWeight: FontWeight.w400, color: ColorsManager.white);
-  static TextStyle ratingText = GoogleFonts.inter(fontSize: 12.sp, fontWeight: FontWeight.w400, color: ColorsManager.white);
+  static TextStyle ratingText = GoogleFonts.inter(fontSize: 10.sp, fontWeight: FontWeight.w400, color: ColorsManager.white);
   static TextStyle titles = GoogleFonts.inter(fontSize: 28.sp, fontWeight: FontWeight.w400, color: ColorsManager.white);
   static TextStyle movieDetails = GoogleFonts.inter(fontSize: 13.sp, fontWeight: FontWeight.w400, color: ColorsManager.white.withOpacity(0.67));
   static TextStyle moviesDetailsTitle = GoogleFonts.inter(fontSize: 20.sp, fontWeight: FontWeight.w400, color: ColorsManager.white);

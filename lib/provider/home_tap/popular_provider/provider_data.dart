@@ -8,7 +8,6 @@ import '../../../data/model/homeScreen_model/home_Tap_Model/popular_movies/Popul
 
 class PopularProvider extends ChangeNotifier
 {
-  bool _isDisposed = false;
   int index=0;
   void changeindex(newindex)
   {

@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-
 import '../../../model/details_screen_Model/details_film/DetailsResponse.dart';
 class getDetailsFilm
 {
