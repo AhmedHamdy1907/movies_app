@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 
 import '../../../data/api/api_home/call_api_releases/api_releases.dart';
-import '../../../data/model/homeScreen_model/home_Tap_Model/new_releases/Releases_response.dart';
+import '../../../data/model_Api/homeScreen_model/home_Tap_Model/new_releases/Releases_response.dart';
 class providerReleases extends ChangeNotifier
 {
   bool _isDisposed = false;

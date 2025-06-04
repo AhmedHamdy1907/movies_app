@@ -4,7 +4,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 
 import '../../data/api/api_search/searchApi.dart';
-import '../../data/model/homeScreen_model/search_tap_model/SearchRespone.dart';
+import '../../data/model_Api/homeScreen_model/search_tap_model/SearchRespone.dart';
 
 class searchProvider extends ChangeNotifier
 {

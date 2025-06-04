@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/core/utils/app_style.dart';
 
 import '../../../../../../core/utils/routes_manager.dart';
-import '../../../../../../data/model/details_screen_Model/details_film/Genres.dart';
+import '../../../../../../data/model_Api/details_screen_Model/details_film/Genres.dart';
 
 class BrowseWidget extends StatelessWidget {
   List<GenresBrowser>? genres;

@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import '../../../model/homeScreen_model/home_Tap_Model/popular_movies/Popular_response.dart';
+import '../../../model_Api/homeScreen_model/home_Tap_Model/popular_movies/Popular_response.dart';
 
 class ApiManager {
 

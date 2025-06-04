@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "483917953597",
+    "project_id": "news-app-fbe7e",
+    "storage_bucket": "news-app-fbe7e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:483917953597:android:76a2a28eadc73d12c28854",
+        "android_client_info": {
+          "package_name": "com.example.movies_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_uRtHUtcWOBMSSf__h_1hjBbLFSBSHzg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

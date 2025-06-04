@@ -1,14 +1,19 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/core/utils/app_style.dart';
 import 'package:movies_app/core/utils/assets_manager.dart';
 import 'package:movies_app/core/utils/color_manager.dart';
 
-class WatchWidget extends StatelessWidget {
-  const WatchWidget({super.key});
+import '../../../../../../data/model_FireStore/firestoremodel.dart';
 
+class WatchWidget extends StatelessWidget {
+  FireStoreModel fireStoreModel;
+   WatchWidget({super.key,required this.fireStoreModel});
   @override
   Widget build(BuildContext context) {
+    const String pathImageUrl = "https://image.tmdb.org/t/p/w500";
     return Container(
       decoration: BoxDecoration(
          borderRadius: BorderRadius.circular(40.r)
@@ -21,7 +26,23 @@ class WatchWidget extends StatelessWidget {
             children:[
             Stack(
                 children: [
-                  Image.asset('assets/images/Image.png', width: 160.w,),
+          Container(
+            width: 140.h,
+            height: 88.h,
+            child: CachedNetworkImage(
+            imageUrl:
+              '$pathImageUrl${fireStoreModel.image}',
+              fit: BoxFit.fill,
+              placeholder: (context, url) => const Center(
+                child: CircularProgressIndicator(), // مؤشر انتظار أثناء التحميل
+              ),
+              errorWidget: (context, url, error) => const Icon(
+                Icons.error,
+                // ويدجت تظهر لو حصل خطأ في التحميل
+                color: Colors.red,
+              ),
+            ),
+          ),
                   Image.asset(
                     AssetsManager.bookMark,
                     fit: BoxFit.cover,
@@ -30,13 +51,29 @@ class WatchWidget extends StatelessWidget {
                   )
                 ]),
               SizedBox(width: 10.w,),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text('Alita Battle Angel', style: AppStyle.movieTitle.copyWith(fontSize: 16),),
-                  Text('2018', style: AppStyle.movieDetails.copyWith(fontSize: 16),),
-                  Text('Alita Battle Angel', style: AppStyle.movieDetails.copyWith(fontSize: 16),),
-                ],
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                     fireStoreModel.title ??"",
+                      maxLines: 1,
+                      style: TextStyle(
+                          overflow: TextOverflow.ellipsis,
+                          fontSize: 16.sp,
+                          color: ColorsManager.white),
+                    ),
+                    Text(fireStoreModel.date??"", style: AppStyle.movieDetails.copyWith(fontSize: 16),),
+                    Text(
+                      fireStoreModel.description??"",
+                      maxLines: 1,
+                      style: TextStyle(
+                          overflow: TextOverflow.ellipsis,
+                          fontSize: 16.sp,
+                          color: ColorsManager.white),
+                    ),
+                  ],
+                ),
               ),
             ]
           ),

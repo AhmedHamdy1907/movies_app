@@ -4,7 +4,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 
 import '../../data/api/api_browser/api_browser.dart';
-import '../../data/model/homeScreen_model/browser_Tap_Model/BrowserResponse.dart';
+import '../../data/model_Api/homeScreen_model/browser_Tap_Model/BrowserResponse.dart';
 
 class browserProvider extends ChangeNotifier
 {

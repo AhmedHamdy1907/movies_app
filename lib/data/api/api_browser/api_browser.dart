@@ -1,6 +1,7 @@
 import 'dart:convert';
-import '../../model/homeScreen_model/browser_Tap_Model/BrowserResponse.dart';
 import 'package:http/http.dart' as http;
+
+import '../../model_Api/homeScreen_model/browser_Tap_Model/BrowserResponse.dart';
 
 class getbrowser {
   static const String _authorization = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiODQ4MjI4ZjQ1YTU4NmYyN2I2YmE5MjBmZDc5MWI2ZCIsIm5iZiI6MTczMzE0MDUxNS42MDMwMDAyLCJzdWIiOiI2NzRkYTAyMzdjMWQ2OThiN2RmN2Y2ZDYiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.MA4D3UVIKOo6emEZPN6CyfmmYc_inw9QFim3Gc9hZ70";

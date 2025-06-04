@@ -1,7 +1,8 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-import '../../../model/details_screen_Model/more_like_this/MoreLikeThisResponse.dart';
+import '../../../model_Api/details_screen_Model/more_like_this/MoreLikeThisResponse.dart';
+
 class getApiMoreLikeThis
 {
   // Uri.parse("https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1")

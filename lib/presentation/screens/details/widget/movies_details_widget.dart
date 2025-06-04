@@ -3,7 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/core/utils/app_style.dart';
 import 'package:movies_app/core/utils/color_manager.dart';
 
-import '../../../../data/model/details_screen_Model/details_film/DetailsResponse.dart';
+import '../../../../data/model_Api/details_screen_Model/details_film/DetailsResponse.dart';
+
 
 
 class MoviesDetailsWidget extends StatelessWidget {
@@ -50,7 +51,7 @@ class MoviesDetailsWidget extends StatelessWidget {
               Icon(Icons.star, color: ColorsManager.yellow, size: 20.sp),
               SizedBox(width: 5.w),
               Text(
-                "7.7",
+                  detailsData.voteAverage.toString()??"",
                 style: AppStyle.ratingText.copyWith(fontSize: 18.sp),
               ),
             ],

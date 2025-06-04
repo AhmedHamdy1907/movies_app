@@ -4,7 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/core/utils/app_style.dart';
 import 'package:movies_app/core/utils/color_manager.dart';
 
-import '../../../../../../data/model/homeScreen_model/search_tap_model/Results.dart';
+import '../../../../../../data/model_Api/homeScreen_model/search_tap_model/Results.dart';
+
 
 class SearchWidget extends StatelessWidget {
   List<ResultsSearch>? results;

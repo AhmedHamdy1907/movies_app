@@ -4,7 +4,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 
 import '../../data/api/api_RuseltBrowser/api_ResultBrowser.dart';
-import '../../data/model/homeScreen_model/browser_Tap_Model/resulte_data/ResultBrowserResponse.dart';
+import '../../data/model_Api/homeScreen_model/browser_Tap_Model/resulte_data/ResultBrowserResponse.dart';
 
 class ResultBrowserProvider extends ChangeNotifier
 {

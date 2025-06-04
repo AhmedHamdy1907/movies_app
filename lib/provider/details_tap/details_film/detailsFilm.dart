@@ -3,7 +3,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:movies_app/data/api/api_details/details_film_api/details_film_api.dart';
 
-import '../../../data/model/details_screen_Model/details_film/DetailsResponse.dart';
+import '../../../data/model_Api/details_screen_Model/details_film/DetailsResponse.dart';
+
 class detailsFilmProvider extends ChangeNotifier {
    num? id;
   DetailsResponse detailsResponse = DetailsResponse();

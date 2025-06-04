@@ -17,10 +17,10 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   List<Widget> tabs = [
-    HomeTab(),
+    const HomeTab(),
     SearchTab(),
-    BrowseTab(),
-    WatchlistTab()
+    const BrowseTab(),
+    const WatchlistTab()
   ];
 
   int selectedIndex = 0;

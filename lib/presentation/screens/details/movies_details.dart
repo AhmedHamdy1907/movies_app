@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/core/utils/app_style.dart';
 import 'package:movies_app/core/utils/color_manager.dart';
 import 'package:movies_app/core/utils/routes_manager.dart';
-import 'package:movies_app/data/model/details_screen_Model/details_film/DetailsResponse.dart';
 import 'package:movies_app/presentation/screens/details/widget/MoreLikeThisWidget/MoreLikeThisWidget.dart';
 import 'package:movies_app/presentation/screens/details/widget/movies_details_widget.dart';
 import 'package:provider/provider.dart';

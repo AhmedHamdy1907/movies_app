@@ -2,7 +2,8 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 
-import '../../model/homeScreen_model/browser_Tap_Model/resulte_data/ResultBrowserResponse.dart';
+import '../../model_Api/homeScreen_model/browser_Tap_Model/resulte_data/ResultBrowserResponse.dart';
+
 // https://api.themoviedb.org/3/discover/movie?with_genres=28
 class GetBrowserResult
 {
