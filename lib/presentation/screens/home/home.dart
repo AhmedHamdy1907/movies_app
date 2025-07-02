@@ -6,24 +6,8 @@ import 'package:movies_app/presentation/screens/home/tabs/home_tab/home_tab.dart
 import 'package:movies_app/presentation/screens/home/tabs/search_tab/search_tab.dart';
 import 'package:movies_app/presentation/screens/home/tabs/watchList_tab/watchList_tab.dart';
 
-import '../../../core/utils/assets_manager.dart';
-
-class Home extends StatefulWidget {
+class Home extends StatelessWidget {
   const Home({super.key});
-
-  @override
-  State<Home> createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> {
-  List<Widget> tabs = [
-    const HomeTab(),
-    SearchTab(),
-    const BrowseTab(),
-    const WatchlistTab()
-  ];
-
-  int selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -31,28 +15,26 @@ class _HomeState extends State<Home> {
       child: Scaffold(
         bottomNavigationBar: BottomNavigationBar(
             onTap: (index) {
-              setState(() {
-                selectedIndex = index;
-              });
+              // Static navigation - no state changes
             },
-            currentIndex: selectedIndex,
+            currentIndex: 0, // Always show first tab
             type: BottomNavigationBarType.fixed,
             items: const [
               BottomNavigationBarItem(
-                  icon: ImageIcon(AssetImage(AssetsManager.home),),
+                  icon: Icon(Icons.home),
                   label: 'HOME'),
               BottomNavigationBarItem(
-                  icon: ImageIcon(AssetImage(AssetsManager.search)),
+                  icon: Icon(Icons.search),
                   label: 'SEARCH'),
               BottomNavigationBarItem(
-                  icon: ImageIcon(AssetImage(AssetsManager.browse)),
+                  icon: Icon(Icons.browse_gallery),
                   label: 'BROWSE'),
               BottomNavigationBarItem(
-                icon: ImageIcon(AssetImage(AssetsManager.watchList)),
+                icon: Icon(Icons.bookmark),
                 label: 'WATCHLIST',
               ),
             ]),
-        body: tabs[selectedIndex],
+        body: const HomeTab(), // Always show HomeTab
       ),
     );
   }
