@@ -1,88 +1,16 @@
-# Movies App - Static Version
+# movies_app
 
-## نظرة عامة
-تم إعادة هيكلة تطبيق الأفلام ليكون نسخة ثابتة بدون منطق ديناميكي أو مصادر بيانات خارجية.
+A new Flutter project.
 
-## التغييرات الرئيسية
+## Getting Started
 
-### ✅ ما تم إزالته:
-- **Firebase** - إزالة كاملة لـ Firebase Core و Cloud Firestore
-- **Provider** - إزالة جميع الـ State Management
-- **API Calls** - إزالة جميع استدعاءات API الخارجية
-- **setState** - إزالة جميع التحديثات الديناميكية للحالة
-- **Local Assets** - استبدال الصور المحلية بروابط إنترنت
+This project is a starting point for a Flutter application.
 
-### ✅ ما تم إضافته:
-- **Static Mock Data** - بيانات وهمية ثابتة للأفلام
-- **Internet Images** - استبدال الصور المحلية بروابط TMDB
-- **Static Navigation** - تنقل ثابت بدون تغيير الحالة
-- **Simplified UI** - واجهة مستخدم مبسطة وثابتة
+A few resources to get you started if this is your first Flutter project:
 
-## الملفات المعدلة
+- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-### الملفات الرئيسية:
-- `lib/main.dart` - إزالة Firebase
-- `lib/my_app.dart` - بدون تغيير
-- `lib/presentation/screens/home/home.dart` - إزالة setState
-- `lib/presentation/screens/splash/splash.dart` - إزالة Future.delayed
-
-### شاشة الرئيسية:
-- `lib/presentation/screens/home/tabs/home_tab/home_tab.dart` - بدون تغيير
-- `lib/presentation/screens/home/tabs/home_tab/popular_widget/PopularWidget.dart` - بيانات ثابتة
-- `lib/presentation/screens/home/tabs/home_tab/popular_widget/build_PopularItem.dart` - إزالة Provider
-- `lib/presentation/screens/home/tabs/home_tab/popular_widget/build_carouselSlider.dart` - إزالة onPageChanged
-- `lib/presentation/screens/home/tabs/home_tab/NewReleases/releases_widget.dart` - بيانات ثابتة
-- `lib/presentation/screens/home/tabs/home_tab/NewReleases/releases_item.dart` - إزالة Provider
-- `lib/presentation/screens/home/tabs/home_tab/Recomended/Recomended.dart` - بيانات ثابتة
-- `lib/presentation/screens/home/tabs/home_tab/Recomended/RecomendedItem.dart` - إزالة Provider
-
-### شاشة التفاصيل:
-- `lib/presentation/screens/details/movies_details.dart` - بيانات ثابتة
-- `lib/presentation/screens/details/widget/MoreLikeThisWidget/MoreLikeThisWidget.dart` - بيانات ثابتة
-- `lib/presentation/screens/details/widget/MoreLikeThisWidget/more_like_this_Item.dart` - إزالة Provider
-
-### التبعيات:
-- `pubspec.yaml` - إزالة Firebase, Provider, HTTP
-
-## البيانات الوهمية
-
-### الأفلام الشائعة:
-- The Dark Knight
-- Inception  
-- Interstellar
-
-### الإصدارات الجديدة:
-- Spider-Man: No Way Home
-- The Batman
-- Doctor Strange 2
-- Top Gun: Maverick
-- Black Panther 2
-
-### الأفلام الموصى بها:
-- Avengers: Endgame
-- Joker
-- Parasite
-- 1917
-- Once Upon a Time in Hollywood
-
-## كيفية التشغيل
-
-1. تأكد من تثبيت Flutter
-2. قم بتشغيل `flutter pub get`
-3. قم بتشغيل `flutter run`
-
-## الميزات المتاحة
-
-- ✅ عرض الأفلام الشائعة
-- ✅ عرض الإصدارات الجديدة
-- ✅ عرض الأفلام الموصى بها
-- ✅ شاشة تفاصيل الفيلم
-- ✅ عرض أفلام مشابهة
-- ✅ التنقل بين الشاشات
-
-## ملاحظات
-
-- جميع البيانات ثابتة ووهمية
-- الصور من TMDB API (مجانية للاستخدام)
-- لا توجد وظائف تفاعلية (مثل الإضافة للمفضلة)
-- التطبيق يعمل بدون إنترنت (بعد تحميل الصور)
+For help getting started with Flutter development, view the
+[online documentation](https://docs.flutter.dev/), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.

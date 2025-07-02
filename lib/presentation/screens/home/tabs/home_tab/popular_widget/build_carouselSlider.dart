@@ -21,7 +21,9 @@ class BuildCarouselSlider extends StatelessWidget {
         autoPlay: true,
         height: 217.h,
         viewportFraction: 1,
-        // Removed onPageChanged to make it static
+        onPageChanged: (index, reason) {
+          changeIndex(index);
+        },
       ),
       items: resultsPopular?.map((e) {
         return SizedBox(

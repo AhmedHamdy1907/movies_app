@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movies_app/core/utils/assets_manager.dart';
 import 'package:movies_app/core/utils/color_manager.dart';
 import 'package:movies_app/core/utils/routes_manager.dart';
 
@@ -7,7 +8,9 @@ class Splash extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Static splash - no navigation delay
+    Future.delayed(const Duration(seconds: 2), () {
+      Navigator.pushReplacementNamed(context, RoutesManager.home);
+    });
     return Stack(
       children: [
         Container(
@@ -15,21 +18,10 @@ class Splash extends StatelessWidget {
           height: double.infinity,
           width: double.infinity,
         ),
-        Center(
-          child: Image.network(
-            'https://via.placeholder.com/200x200/FF6B6B/FFFFFF?text=Movies',
-            width: 200,
-            height: 200,
-          )
-        ),
+        Center(child: Image.asset(AssetsManager.movies)),
         Align(
           alignment: Alignment.bottomCenter,
-          child: Image.network(
-            'https://via.placeholder.com/150x50/4ECDC4/FFFFFF?text=Route',
-            width: 150,
-            height: 50,
-          )
-        ),
+            child: Image.asset(AssetsManager.routeLogo)),
       ],
     );
   }
